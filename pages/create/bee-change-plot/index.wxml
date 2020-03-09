@@ -1,0 +1,11 @@
+<!--pages/plant-change-plot/index.wxml-->
+<view class="bee-change-plot">
+  <view class="content">
+    <view class="list">
+      <text>地块名称：</text>
+       <input type="text" maxlength="10" placeholder="请输入您的地块名称" value="{{name}}" bindinput="input" data-k="name"/>
+    </view>
+  </view>
+  <view class="btn" bindtap="addCote">确定</view>
+</view>
+

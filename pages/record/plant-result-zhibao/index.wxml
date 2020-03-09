@@ -1,0 +1,48 @@
+<!--pages/record-history/index.wxml-->
+<view class="plant-result-zhibao">
+  <view class="record-content">
+    <view class="time">记录于{{toDay.create_time}}</view>
+    <view class="msg">
+      <view class="msg-base">
+        <image src="../../../images/record-peng.png"></image>   
+        {{batchInfo.cote_type}}{{batchInfo.cote_name}}-{{batchInfo.batch_time}}-{{batchInfo.crop}}-{{batchInfo.variety}}
+      </view>
+      <view class="msg-date">
+        <image src="../../../images/record-date.png"></image> 
+        农事日期 {{toDay.info_time}}
+      </view>
+      <view class="msg-list" wx:if="{{toDay.drugFaces.length}}">
+        <view class="msg-title">药剂外包装正面</view>
+        <view class="msg-img">
+          <image bindtap="imgBig" data-src="{{toDay.drugFaces}}" wx:for="{{toDay.drugFaces}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+        </view>
+      </view>
+      <view class="msg-list" wx:if="{{toDay.drugCons.length}}">
+        <view class="msg-title">药剂外包装反面</view>
+        <view class="msg-img">
+          <image bindtap="imgBig" data-src="{{toDay.drugCons}}" wx:for="{{toDay.drugCons}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+        </view>
+      </view>
+      <view class="msg-list" wx:if="{{toDay.spots.length}}">
+        <view class="msg-title">施药现场</view>
+        <view class="msg-img">
+          <image bindtap="imgBig" data-src="{{toDay.spots}}" wx:for="{{toDay.spots}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+        </view>
+      </view>
+      <view class="msg-input" wx:if="{{toDay.prevention_object}}">
+        <text>防治对象：</text> <text>{{toDay.prevention_object}}</text>
+      </view>
+      <view class="msg-input" wx:if="{{toDay.drug_name}}">
+        <text>肥料名称：</text> <text>{{toDay.drug_name}}</text>
+      </view>
+      <view class="msg-input" wx:if="{{toDay.measure}}">
+        <text>肥料用量：</text> <text>{{toDay.measure}}</text>
+      </view>
+      <view class="msg-txt" wx:if="{{toDay.text}}">{{toDay.text}}</view>
+      <view class="btn" wx:if="{{status}}">
+        <view class="hold" data-id="{{toDay.id}}" bindtap="addFun">增补信息</view>
+        <view class="config" bindtap="configFun">确认完成</view>
+      </view>
+    </view>
+  </view>
+</view>

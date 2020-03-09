@@ -1,0 +1,151 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/index",
+    "pages/project/index",
+    "pages/weather/index",
+    
+    "pages/mine/mine-product-list/index",
+    "pages/mine/mine-product-result/index",
+    "pages/mine/mine-polling-entrance/index",
+    "pages/mine/mine-product-add/index",
+    "pages/mine/mine-polling-list/index",
+    "pages/mine/mine-polling-record/index",
+    "pages/mine/mine-polling-result/index",
+    "pages/mine/mine-polling-farm/index",
+    "pages/mine/mine-farm-aptitude/index",
+    "pages/mine/mine-farm-aptitude-result/index",
+    "pages/mine/mine-history-detail/index",
+    "pages/mine/mine-history-list/index",
+
+    "pages/record/bee-record-list/index",
+    "pages/record/bee-result-xuncha/index",
+    "pages/record/bee-record-xuncha/index",
+    "pages/record/bee-result-yaoji/index",
+    "pages/record/bee-record-yaoji/index",
+    "pages/record/bee-result-siliao/index",
+    "pages/record/bee-record-siliao/index",
+    "pages/record/bee-result-shouhuo/index",
+    "pages/record/bee-record-shouhuo/index",
+    "pages/record/bee-result-weizhi/index",
+    "pages/record/bee-record-weizhi/index",
+    "pages/record/bee-result-huanjing/index",
+    "pages/record/bee-record-huanjing/index",
+
+    "pages/record/egg-record-list/index",
+    "pages/record/egg-result-xuncha/index",
+    "pages/record/egg-record-xuncha/index",
+    "pages/record/egg-result-yaoji/index",
+    "pages/record/egg-record-yaoji/index",
+    "pages/record/egg-result-siliao/index",
+    "pages/record/egg-record-siliao/index",
+    "pages/record/egg-result-sitao/index",
+    "pages/record/egg-record-sitao/index",
+    "pages/record/egg-result-shouhuo/index",
+    "pages/record/egg-record-shouhuo/index",
+
+    
+   
+
+    "pages/create/bee-plot-list/index",
+    "pages/create/bee-batch-list/index",
+    "pages/create/bee-change-batch/index",
+    "pages/create/bee-change-plot/index",
+    "pages/create/bee-creat-plot/index",
+    "pages/create/bee-creat-batch/index",
+    
+   
+    "pages/create/chicken-plot-list/index",
+    "pages/create/chicken-creat-batch/index",
+    "pages/create/chicken-change-batch/index",
+    "pages/create/chicken-change-recipe/index",
+    "pages/create/chicken-creat-recipe/index",
+    "pages/create/chicken-batch-list/index",
+    "pages/create/chicken-change-plot/index",
+    "pages/create/chicken-creat-plot/index",
+    
+
+    
+    
+    
+    "pages/create/plant-batch-list/index",
+    "pages/create/plant-change-batch/index",
+    "pages/create/plant-creat-batch/index",
+    "pages/create/plant-plot-list/index",
+    "pages/create/plant-change-plot/index",
+    "pages/create/plant-creat-plot/index",
+    
+
+    "pages/record/plant-record-list/index",
+    "pages/record/plant-record-xuncha/index",
+    "pages/record/plant-result-xuncha/index",
+    "pages/record/plant-record-zhibao/index",
+    "pages/record/plant-result-zhibao/index",
+    "pages/record/plant-record-feiliao/index",
+    "pages/record/plant-result-feiliao/index",
+    "pages/record/plant-record-caishou/index",
+    "pages/record/plant-result-caishou/index",
+
+    "pages/logs/logs"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于天气效果展示" 
+    }
+  },
+  "tabBar": {
+    "color": "#7A8189",
+    "selectedColor": "#15BC84",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "农事记录",
+        "iconPath": "images/jilu.png",
+        "selectedIconPath": "images/jilu-cur.png"
+      },
+      {
+        "pagePath": "pages/project/index",
+        "text": "农场规划",
+        "iconPath": "images/guihua.png",
+        "selectedIconPath": "images/guihua-cur.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的农场",
+        "iconPath": "images/nongchang.png",
+        "selectedIconPath": "images/nongchang-cur.png"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "name": "aaa",
+      "root": "packageA",
+      "pages": []
+    },
+    {
+      "name": "bbb",
+      "root": "packageB",
+      "pages": []
+    }
+  ],
+  "preloadRule": {},
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#cda273",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "networkTimeout": {
+    "request": 200000
+  },
+  "plugins": {
+    "WechatSI": {
+      "version": "0.3.3",
+      "provider": "wx069ba97219f66d99"
+    }
+  }
+}

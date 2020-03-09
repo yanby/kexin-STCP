@@ -1,0 +1,55 @@
+<!--pages/record-history/index.wxml-->
+<view class="bee-result-shouhuo">
+  <view class="record-content">
+    <view class="time">记录于{{toDay.create_time}}</view>
+    <view class="msg">
+      <view class="msg-base">
+        <image src="../../../images/record-peng.png"></image>   
+        {{batchInfo.cote_type}}{{batchInfo.cote_name}}-{{batchInfo.batch_time}}-{{batchInfo.crop}}-{{batchInfo.variety}}
+      </view>
+      <view class="msg-date">
+        <image src="../../../images/record-date.png"></image> 
+        农事日期 {{toDay.info_time}}
+      </view>
+      <view class="msg-list" wx:if="{{toDay.operateSpots.length}}">
+        <view class="msg-title">操作现场图</view>
+        <view class="msg-img">
+          <image bindtap="imgBig" data-src="{{toDay.operateSpots}}" wx:for="{{toDay.operateSpots}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+        </view>
+      </view>
+      <view class="msg-list" wx:if="{{toDay.spots.length}}">
+        <view class="msg-title">采收现场</view>
+        <view class="msg-img">
+          <image bindtap="imgBig" data-src="{{toDay.spots}}" wx:for="{{toDay.spots}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+        </view>
+      </view>
+      <view class="msg-list" wx:if="{{toDay.labels.length}}">
+        <view class="msg-title">采收桶追溯标签</view>
+        <view class="msg-img">
+          <image bindtap="imgBig" data-src="{{toDay.labels}}" wx:for="{{toDay.labels}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+        </view>
+      </view>
+      <view class="msg-input" wx:if="{{toDay.mel}}">
+        <text>蜂蜜量：</text> <text>{{toDay.mel}}千克</text>
+      </view>
+      <view class="msg-input" wx:if="{{toDay.king}}">
+        <text>王浆量：</text> <text>{{toDay.king}}千克</text>
+      </view>
+      <view class="msg-input" wx:if="{{toDay.dust}}">
+        <text>花粉量：</text> <text>{{toDay.dust}}千克</text>
+      </view>
+      <view class="msg-input" wx:if="{{toDay.wax}}">
+        <text>蜂蜡量：</text> <text>{{toDay.wax}}千克</text>
+      </view>
+      <view class="msg-input" wx:if="{{toDay.glue}}">
+        <text>蜂胶量：</text> <text>{{toDay.glue}}千克</text>
+      </view>
+      
+      <view class="msg-txt" wx:if="{{toDay.text}}">{{toDay.text}}</view>
+      <view class="btn" wx:if="{{status}}">
+        <view class="hold" data-id="{{toDay.id}}" bindtap="addFun">增补信息</view>
+        <view class="config" bindtap="configFun">确认完成</view>
+      </view>
+    </view>
+  </view>
+</view>

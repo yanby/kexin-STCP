@@ -1,0 +1,99 @@
+<view class="page-index">
+  <view class="no-jilu" wx:if="{{flag}}">
+    <view class="no-title">农事记录<image bindtap="getLocation" src="../../images/tianqi.png"></image></view>
+    <view class="no-content">
+      <view class="no-img"><image src="../../images/no-jilu.png"></image></view>
+      <view class="no-txt">农场空空如也，无批次可记录,去规划农场吧</view>
+    </view>
+  </view>
+  <view class="yes-jilu" wx:else>
+    <view class="yes-title">
+      <scroll-view class="scroll-view" scroll-x="true" bindscroll="scroll" style="width: 100%">
+        <view wx:for="{{titleArr}}" data-type="{{item.type}}" class="{{coteType == item.type ? 'cur' : ''}}" wx:key="{{item.type}}" bindtap="titleFun">{{item.name}}</view>   
+      </scroll-view>
+      <view class="yes-tianqi"><image bindtap="getLocation" src="../../images/tianqi.png"></image></view>
+      <view class="yes-select">
+        <!-- <image src="../../images/index-bg.png"></image> -->
+        <view wx:for="{{selectArr}}" data-id="{{item.id}}" class="{{selectActiveId == item.id ? 'cur' : ''}}" wx:key="{{item.id}}" bindtap="selectFun">{{item.name}}</view>
+      </view>
+    </view>
+    <view class="yes-list" wx:if="{{coteType == 'crop'}}">
+      <view class="yes-list-items" data-coteType="crop" data-crop="{{item.crop}}" data-variety="{{item.variety}}" data-id="{{item.id}}" bindtap="goRecordwrite" wx:for="{{cropResult}}">
+        <!-- <view class="yes-item-img"><image></image></view> -->
+        <view class="yes-item-msg">
+          <view class="yes-item-title">{{item.crop}}-{{item.variety}}</view>
+          <view class="yes-item-peng"><text>{{item.cote_type}}{{item.cote_name}}</text><text>{{item.batch_time}}</text></view>
+          <view class="yes-item-date">最新：{{item.info_update_time || '暂无记录'}}</view>
+          <view class="yes-item-type">{{item.type_name || '暂无记录'}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="yes-list" wx:elif="{{coteType == 'egg'}}">
+      <view class="yes-list-items" data-coteType="egg" data-crop="{{item.crop}}" data-variety="{{item.variety}}" data-id="{{item.id}}" bindtap="goRecordwrite" wx:for="{{eggResult}}">
+        <!-- <view class="yes-item-img"><image></image></view> -->
+        <view class="yes-item-msg">
+          <view class="yes-item-title">蛋鸡-{{item.variety}}</view>
+          <view class="yes-item-peng"><text>{{item.cote_name}}</text><text>{{item.buy_time}}进雏</text></view>
+          <view class="yes-item-date">最新：{{item.info_update_time || '暂无记录'}}</view>
+          <view class="yes-item-type">{{item.type_name || '暂无记录'}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="yes-list" wx:elif="{{coteType == 'bee'}}">
+      <view class="yes-list-items" data-coteType="bee" data-crop="{{item.crop}}" data-variety="{{item.variety}}" data-id="{{item.id}}" bindtap="goRecordwrite" wx:for="{{beeResult}}">
+        <!-- <view class="yes-item-img"><image></image></view> -->
+        <view class="yes-item-msg">
+          <view class="yes-item-title">{{item.variety}}</view>
+          <view class="yes-item-peng"><text>{{item.cote_name}}</text><text>{{item.bee_join_time}}入箱</text></view>
+          <view class="yes-item-date">最新：{{item.info_update_time || '暂无记录'}}</view>
+          <view class="yes-item-type">{{item.type_name || '暂无记录'}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="yes-model" wx:if="{{model}}" catchtap="closeModel">
+    <view wx:if="{{selectActiveId == 0}}" class="yes-jiantou1"></view>
+    <view wx:if="{{selectActiveId == 1}}" class="yes-jiantou2"></view>
+    <view class="yes-content" wx:if="{{selectActiveId == 1}}">
+      <view class="yes-model-title">选择作物</view>
+      <view bindtap="allZuowu" class="{{zuowuId == -1 ? 'yes-model-total cur' : 'yes-model-total'}}">全部作物</view>
+      <view class="yes-model-list "><view wx:for="{{zuowuArr}}" data-id="{{item.id}}" data-name="{{item.name}}" class="{{zuowuId == item.id ? 'cur' : ''}}" wx:key="{{item.id}}" catchtap="zuowuFun">{{item.name}}</view></view>
+    </view>
+    <view class="yes-content" wx:if="{{selectActiveId == 0}}">
+      <view class="yes-model-title">选择地块</view>
+      <view bindtap="allDikuaiFun" class="{{dikuaiId == -1 ? 'yes-model-total cur' : 'yes-model-total'}}">全部地块</view>
+      <view class="yes-wrap" wx:if="{{plotArr.warm.length}}">
+        <view class="yes-model-title">暖棚</view>
+        <view class="yes-model-list "><view wx:for="{{plotArr.warm}}" data-name="{{item.name}}" data-id="{{item.id}}" class="{{dikuaiId == item.id ? 'cur' : ''}}" wx:key="{{item.id}}" catchtap="dikuaiFun">{{item.name}}</view></view>
+      </view>
+      <view class="yes-wrap" wx:if="{{plotArr.cold.length}}">
+        <view class="yes-model-title">冷棚</view>
+        <view class="yes-model-list "><view wx:for="{{plotArr.cold}}" data-name="{{item.name}}" data-id="{{item.id}}" class="{{dikuaiId == item.id ? 'cur' : ''}}" wx:key="{{item.id}}" catchtap="dikuaiFun">{{item.name}}</view></view>
+      </view>
+      <view class="yes-wrap" wx:if="{{plotArr.openAir.length}}">
+        <view class="yes-model-title">露地</view>
+        <view class="yes-model-list "><view wx:for="{{plotArr.openAir}}" data-name="{{item.name}}" data-id="{{item.id}}" class="{{dikuaiId == item.id ? 'cur' : ''}}" wx:key="{{item.id}}" catchtap="dikuaiFun">{{item.name}}</view></view>
+      </view>
+      <view class="yes-wrap" wx:if="{{plotArr.scattered.length}}">
+        <view class="yes-model-title">散养</view>
+        <view class="yes-model-list "><view wx:for="{{plotArr.scattered}}" data-name="{{item.name}}" data-id="{{item.id}}" class="{{dikuaiId == item.id ? 'cur' : ''}}" wx:key="{{item.id}}" catchtap="dikuaiFun">{{item.name}}</view></view>
+      </view>
+      <view class="yes-wrap" wx:if="{{plotArr.cage.length}}">
+        <view class="yes-model-title">笼养</view>
+        <view class="yes-model-list "><view wx:for="{{plotArr.cage}}" data-name="{{item.name}}" data-id="{{item.id}}" class="{{dikuaiId == item.id ? 'cur' : ''}}" wx:key="{{item.id}}" catchtap="dikuaiFun">{{item.name}}</view></view>
+      </view>
+      <view class="yes-wrap" wx:if="{{plotArr.floor.length}}">
+        <view class="yes-model-title">地面平养</view>
+        <view class="yes-model-list "><view wx:for="{{plotArr.floor}}" data-name="{{item.name}}" data-id="{{item.id}}" class="{{dikuaiId == item.id ? 'cur' : ''}}" wx:key="{{item.id}}" catchtap="dikuaiFun">{{item.name}}</view></view>
+      </view>
+      <view class="yes-wrap" wx:if="{{plotArr.net.length}}">
+        <view class="yes-model-title">网上平养</view>
+        <view class="yes-model-list "><view wx:for="{{plotArr.net}}" data-name="{{item.name}}" data-id="{{item.id}}" class="{{dikuaiId == item.id ? 'cur' : ''}}" wx:key="{{item.id}}" catchtap="dikuaiFun">{{item.name}}</view></view>
+      </view>
+      <view class="yes-wrap" wx:if="{{plotArr.cote.length}}">
+        <view class="yes-model-list "><view wx:for="{{plotArr.cote}}" data-name="{{item.name}}" data-id="{{item.id}}" class="{{dikuaiId == item.id ? 'cur' : ''}}" wx:key="{{item.id}}" catchtap="dikuaiFun">{{item.name}}</view></view>
+      </view>
+    </view>
+  </view>
+</view>
+   

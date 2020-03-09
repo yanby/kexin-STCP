@@ -1,0 +1,22 @@
+<view class="bee-record-list">
+  <view class="record-title">
+    <view class="record-top"><view class="record-top-txt">巡检记录</view><view class="record-top-jieshu" bindtap="resultFun" wx:if="{{status == 0}}">结束</view></view>
+  </view>
+  <view class="record-content" wx:if="{{result.length != 0}}">
+    <view class="record-list" wx:for="{{result}}" data-status="{{item.status}}" data-id="{{item.id}}" bindtap="recordResult">
+     <view class="record-img" wx:if="{{item.imgs.length != 0}}"><image src="{{item.imgs[0].img}}"></image></view>
+      <view class="record-txt" wx:else>暂无图片</view>
+      <!-- <view class="record-img"><image src="{{item.imgs[0].img}}"></image></view> -->
+      <view class="record-date">{{item.routing_time}}</view>
+      <view class="record-type">
+        <text class="record-type-yes" wx:if="{{item.status == 1}}">已确认</text>
+        <text class="record-type-no" wx:else>未确认</text>
+      </view>
+    </view>
+  </view>
+   <view class="no-content" wx:else>
+    <view class="no-img"><image src="../../../images/no-jilu.png"></image></view>
+    <view class="no-txt">尚无内容</view>
+  </view>
+  <view class="record-add" bindtap="goRecordWrite" wx:if="{{status == 0}}">记录</view>
+</view>

@@ -1,0 +1,20 @@
+<!--pages/plant-plot-list/index.wxml-->
+<view class="bee-plot-list">
+  <!-- <view class="title">地块列表 <text>管理</text></view> -->
+  <view class="content" wx:if="{{cotes.length != 0}}">
+    <view class="list" data-id="{{item.id}}" bindtap="gobatchList" wx:for="{{cotes}}" >
+      <!-- <view class="img"><image></image></view> -->
+      <view class="msg">
+        <view class="code">{{item.name}}</view>
+        <view class="num">作物批次：{{item.batch_count}}</view>
+        <view class="edit" catchtap="goChangePlot" data-o="{{item}}"><image src="../../../images/edit.png"></image></view>
+        <view class="del" catchtap="delFun" data-id="{{item.id}}"><image src="../../../images/del.png"></image></view>
+      </view>
+    </view>
+  </view>
+  <view class="no-dikuai" wx:else>
+    <view class="no-img"><image src="../../../images/no-dikuai.png"></image></view>
+    <view class="no-txt">暂无地块，去添加个吧~</view>
+  </view>
+  <view class="btn" bindtap="goCreatPlot">添加地块</view>
+</view>

@@ -1,0 +1,48 @@
+<!--pages/mine-farm-aptitude/index.wxml-->
+<view class="mine-farm-aptitude">
+  <!-- <view class="record-top"><view class="record-top-txt">农场资质与认证</view><view class="record-top-jieshu" bindtap="changeFun">修改</view></view> -->
+  <view class="tips">温馨提示：请确保上传资料的真实性，我们仅对您的资料予以认证，不会对您的资料泄露</view>
+  <view class="content">
+    <view class="zhizhao"></view>
+    <view class="img img-zhizhao">
+      <view class="img-txt">营业执照</view>
+      <view class="img-tu">
+        <view wx:if="{{imgs1!=null}}" class="img-tu-wrap">
+          <image src="{{imgs1.img}}"></image>
+          <view class="img-close" data-id="{{imgs1.id}}" bindtap="delImg1">-</view>
+        </view>
+        <view wx:if="{{imgs1==null}}" class="img-tu-item" bindtap="chooseImg1">
+          <view class="img-tu-add">+</view>
+          <view class="img-tu-upload">上传图片</view>
+        </view>
+      </view>
+    </view>
+    <view class="img">
+      <view class="img-txt">农场认证资质</view>
+      <view class="img-tu">
+        <view wx:for="{{imgs2}}" class="img-tu-wrap">
+          <image src="{{item.img}}"></image>
+          <view class="img-close" data-id="{{item.id}}" bindtap="delImg2">-</view>
+        </view>
+        <view class="img-tu-item" bindtap="chooseImg2">
+          <view class="img-tu-add">+</view>
+          <view class="img-tu-upload">上传图片</view>
+        </view>
+      </view>
+    </view>
+    <view class="img">
+      <view class="img-txt">其他</view>
+      <view class="img-tu">
+        <view wx:for="{{imgs3}}" class="img-tu-wrap">
+          <image  src="{{item.img}}"></image>
+          <view class="img-close" data-id="{{item.id}}" bindtap="delImg3">-</view>
+        </view>
+        <view class="img-tu-item" bindtap="chooseImg3">
+          <view class="img-tu-add">+</view>
+          <view class="img-tu-upload">上传图片</view>
+        </view>
+      </view>
+    </view>
+  </view>
+   <view class="btn" bindtap="addCote">确定</view>
+</view>

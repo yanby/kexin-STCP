@@ -1,0 +1,76 @@
+/* pages/record-history/index.wxss */
+.time{
+  font-size: 30rpx;
+  color: #CCCCCC;
+  text-align: center;
+  height: 107rpx;
+  line-height: 107rpx;
+}
+.msg{
+  font-size: 30rpx;
+  padding: 40rpx 40rpx 250rpx;
+  background: #fff;
+}
+.msg-input{
+  margin-bottom: 15rpx;
+}
+.msg-base{
+   margin-bottom: 40rpx;
+   font-weight: bold;
+}
+.msg-base image,.msg-date image{
+  width: 38rpx;
+  height: 38rpx;
+  vertical-align: text-bottom;
+  margin-right: 5rpx;
+}
+.msg-date{
+  margin-bottom: 40rpx;
+  font-weight: bold;
+}
+.msg-img{
+    display: flex;
+   flex-wrap: wrap;
+   margin-bottom: 40rpx;
+}
+.msg-title{
+  font-size:  30rpx;
+  margin-bottom: 10rpx;
+  color: #333;
+}
+.msg-list image{
+  width:196rpx;
+  height:196rpx;
+  margin: 15rpx 10rpx 0rpx 0;
+}
+.msg-txt{
+  width: 600rpx;
+  min-height: 20rpx;
+  border-radius: 10rpx;
+  background:#f5f5f5;
+  padding: 20rpx;
+}
+
+.btn{
+  position: fixed;
+  bottom: 50rpx;
+  left: 59rpx;
+  width: 632rpx;
+  height:83rpx;
+  line-height: 83rpx;
+  color:#fff;
+  display: flex;
+  text-align: center;
+  font-size: 30rpx;
+  margin: 50rpx auto;
+}
+.hold{
+  width: 316rpx;
+  border-radius: 100rpx 0  0 100rpx;
+  background: #6fd3b1;
+}
+.config{
+  width: 316rpx;
+  background: #15bc84;
+  border-radius: 0 100rpx 100rpx 0;
+}

@@ -1,0 +1,51 @@
+/* pages/plant-creat-plot/index.wxss */
+.content{
+  padding: 70rpx 0;
+}
+.type{
+  display: flex;
+  font-size: 28rpx;
+  width: 630rpx;
+  margin: 0 auto 60rpx;
+}
+.type text{
+  display: inline-block;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-right: 40rpx;
+}
+.list{
+  padding: 0 30rpx;
+  display: flex;
+  font-size: 30rpx;
+  margin-bottom: 30rpx;
+  position: relative;
+}
+.list text{
+  height:61rpx;
+  line-height: 61rpx;
+}
+.list input{
+  width:523rpx;
+  height:61rpx;
+  padding-left: 20rpx;
+  background: #fff;
+}
+.unit{
+  position: absolute;
+  right: 60rpx;
+  top: 15rpx;
+}
+.btn{
+  position: fixed;
+  left: 60rpx;
+  bottom: 30rpx;
+  width:632rpx;
+  height:83rpx;
+  line-height: 83rpx;
+  text-align: center;
+  font-size: 30rpx; 
+  background: #15ba82;
+  color: #fff;
+  border-radius: 50rpx;
+}

@@ -1,0 +1,38 @@
+<!--pages/record-history/index.wxml-->
+<view class="bee-result-huanjing">
+  <view class="record-content">
+    <view class="time">记录于{{toDay.create_time}}</view>
+    <view class="msg">
+      <view class="msg-base">
+        <image src="../../../images/record-peng.png"></image>   
+        {{batchInfo.cote_type}}{{batchInfo.cote_name}}-{{batchInfo.batch_time}}-{{batchInfo.crop}}-{{batchInfo.variety}}
+      </view>
+      <view class="msg-date">
+        <image src="../../../images/record-date.png"></image> 
+        农事日期 {{toDay.info_time}}
+      </view>
+       <view class="msg-input" wx:if="{{toDay.location}}">
+        <text>放蜂地点：</text> <text>{{toDay.location}}</text>
+      </view>
+      <view class="msg-list" wx:if="{{toDay.plants.length}}" wx:for="{{toDay.plants}}">
+        <view class="msg-title"><text>蜜源植物：</text> <text>{{item.batch_bee_plant}}</text></view>
+        <view class="msg-img">
+          <image bindtap="imgBig" data-src="{{item.imgs}}" wx:for="{{item.imgs}}" wx:for-index="i" wx:for-item="p" src="{{p}}" data-index="{{i}}"></image>
+         
+        </view>
+      </view>
+      <view class="msg-list" wx:if="{{toDay.headwaters.length}}" wx:for="{{toDay.headwaters}}">
+        <view class="msg-title"><text>水源地：</text> <text>{{item.batch_bee_headwaters_location}}</text></view>
+        <view class="msg-img">
+          <image bindtap="imgBig" data-src="{{item.imgs}}"  wx:for="{{item.imgs}}" wx:for-index="i" wx:for-item="p" src="{{p}}" data-index="{{i}}"></image>
+        </view>
+      </view>
+  
+      <view class="msg-txt" wx:if="{{toDay.text}}">{{toDay.text}}</view>
+      <view class="btn" wx:if="{{status}}">
+        <view class="hold" data-id="{{toDay.id}}" bindtap="addFun">增补信息</view>
+        <view class="config" bindtap="configFun">确认完成</view>
+      </view>
+    </view>
+  </view>
+</view>

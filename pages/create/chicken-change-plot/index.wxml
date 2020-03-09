@@ -1,0 +1,26 @@
+<!--pages/plant-change-plot/index.wxml-->
+<view class="chicken-change-plot">
+  <view class="content">
+    <view class="type">
+      <text>养殖类型</text>
+      <view class="type-radio">
+        <radio-group class="radio-group" bindchange="radioChange">
+          <radio class="radio" wx:for="{{items}}" wx:key="name" value="{{item.id}}" checked="{{style_mode == item.id}}">
+            <text>{{item.value}}</text>
+          </radio>
+        </radio-group>
+      </view>
+    </view>
+    <view class="list">
+      <text>地块名称：</text>
+      <input type="text" maxlength="10" placeholder="请输入您的地块名称" value="{{name}}" bindinput="input" data-k="name" />
+    </view>
+    <view class="list">
+      <text>地块面积：</text>
+      <input  placeholder="请输入您的地块面积" value="{{area}}" bindinput="input" data-k="area" type="digit" />
+      <view class="unit">平米</view>
+    </view>
+  </view>
+  <view class="btn" bindtap="addCote">确定</view>
+</view>
+

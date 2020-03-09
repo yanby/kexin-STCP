@@ -1,0 +1,22 @@
+<!--pages/plant-creat-plot/index.wxml-->
+<view class="chicken-change-recipe">
+  <view class="content">
+    <view class="list">
+      <text>饲料名称：</text>
+      <input maxlength="10" placeholder="请输入您的饲料名称" value="{{name}}" bindinput="changeName" />
+    </view>
+    <view class="list" wx:for="{{formula}}" >
+      <view class="one">
+        <text>原料：</text>
+        <input type="text" value="{{item.k}}" data-index="{{index}}" data-k="k" bindinput="changeFormula" /> 
+      </view>
+      <view class="two">
+        <text>含量：</text>
+        <input type="digit" value="{{item.v}}" data-index="{{index}}" data-k="v" bindinput="changeFormula" /> %
+      </view>
+      <view class="close" data-id="{{item.id}}" data-index="{{index}}" catchtap="delFormula" wx:if="{{index > 0}}">-</view>
+    </view>
+  </view>
+  <view class="add" bindtap="addFormula">+ 继续添加原料</view>
+  <view class="btn" bindtap="goPlotList">确定</view>
+</view>

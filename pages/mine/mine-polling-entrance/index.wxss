@@ -1,0 +1,64 @@
+/* pages/mine-polling-entrance/index.wxss */
+.title{
+  display: flex;
+  justify-content: space-around;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #cda273;
+  font-size: 36rpx;
+}
+.title view.cur{
+  color: #fff;
+} 
+.content{
+  padding: 70rpx 40rpx;
+}
+.no-img{
+  width: 236rpx;
+  height: 220rpx;
+  margin: 150rpx auto 30rpx; 
+}
+.no-img image{
+  width: 100%;
+  height: 100%;
+}
+.no-tex{
+  font-size: 28rpx;
+  color: #999999;
+  text-align: center;
+}
+.yes-list{
+  width:636rpx;
+  height:169rpx;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 10rpx;
+  margin-bottom: 30rpx;
+}
+.yes-name{
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-left: 30rpx;
+  padding-top: 35rpx;
+  margin-bottom: 20rpx;
+}
+.yes-date{
+  font-size: 28rpx;
+  color: #999;
+  margin-left: 30rpx;
+}
+.xunjian-add{
+  width:136rpx;
+  height:136rpx;
+  position: fixed;
+  right: 30rpx;
+  bottom: 100rpx;
+  background: #15bc84;
+  font-size: 34rpx;
+  color: #fff;
+  text-align: center;
+  border-radius: 50%;
+}
+.xunjian-add view:nth-of-type(1){
+  padding-top: 20rpx;
+}

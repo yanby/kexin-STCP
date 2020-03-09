@@ -1,0 +1,19 @@
+<view class="mine-polling-entrance">
+  <view class="title">
+      <view wx:for="{{arr}}" data-id="{{item.id}}" class="{{titleActiveId == item.id ? 'cur' : ''}}" wx:key="{{item.id}}" bindtap="titleFun">{{item.name}}</view>   
+  </view>
+  <view class="content">
+    <view class="xunjian">
+      <view class='yes-jilu'>
+        <view class="yes-list" data-id="{{item.id}}" bindtap="goList" wx:for="{{farmsResult}}">
+          <view class="yes-name">{{item.farm_name}}</view>
+          <view class="yes-date">最新巡检：{{item.routing_time || '暂无巡检'}}</view>
+        </view>
+      </view>
+      <!-- <view class="xunjian-add" bindtap="goPollingWrite">
+        <view>添加</view>
+        <view>巡检</view>
+      </view> -->
+    </view>
+  </view>
+</view>

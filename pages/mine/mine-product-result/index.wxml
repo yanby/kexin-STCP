@@ -1,0 +1,43 @@
+<!--pages/mine-farm-aptitude/index.wxml-->
+<view class="mine-product-authentication">
+  <view class="content">
+    <view class="zhizhao"></view>
+    <view class="img">
+      <view class="img-txt"><text></text> 有机/绿色证书</view>
+      <view class="img-txt-item" wx:if="{{imgs1.length == 0}}">无内容</view>
+      <view class="img-tu" wx:if="{{imgs1.length != 0}}">
+        <view class="img-tu-wrap">
+          <image  wx:for="{{imgs1}}" data-src="{{imgs1}}" src="{{item.img}}" bindtap="imgBig" data-index="{{index}}"></image>
+        </view>
+        <!-- <view  class="img-tu-item" bindtap="chooseImg1">
+          <view class="img-tu-add">未上传</view>
+        </view> -->
+      </view>
+    </view>
+    <view class="img">
+      <view class="img-txt"><text></text> 检测报告</view>
+      <view class="img-txt-item" wx:if="{{imgs2.length == 0}}">无内容</view>
+      <view class="img-tu" wx:if="{{imgs2.length != 0}}">
+        <view class="img-tu-wrap">
+          <image wx:for="{{imgs2}}" data-src="{{imgs2}}" src="{{item.img}}" bindtap="imgBig" data-index="{{index}}"></image>
+        </view>
+        <!-- <view  class="img-tu-item" bindtap="chooseImg2">
+           <view class="img-tu-add">未上传</view>
+        </view> -->
+      </view>
+    </view>
+    <view class="img">
+      <view class="img-txt"><text></text> 其他</view>
+      <view class="img-txt-item" wx:if="{{imgs3.length == 0}}">无内容</view>
+      <view class="img-tu" wx:if="{{imgs3.length != 0}}">
+        <view class="img-tu-wrap">
+          <image wx:for="{{imgs3}}" data-src="{{imgs3}}" src="{{item.img}}" bindtap="imgBig" data-index="{{index}}"></image>
+        </view>
+        <!-- <view  class="img-tu-item" bindtap="chooseImg3">
+          <view class="img-tu-add">未上传</view>
+        </view> -->
+      </view>
+    </view>
+  </view>
+   <view class="btn" bindtap="resultFun">修改</view>
+</view>

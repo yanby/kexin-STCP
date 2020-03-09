@@ -1,0 +1,19 @@
+<!--pages/project/index.wxml-->
+<view class="project">
+  <view class="project-bg"><image src="../../images/index-bg.png"></image></view>
+  <view class="content">
+    <view class="list" bindtap="goFun" data-params="zhongzhi">
+      <view class="zhongzhi-img"><image src="../../images/zhongzhi-icon.jpg"></image></view>
+      <view class="zhongzhi-bg"><image src="../../images/zhongzhi.png"></image></view>
+    </view>
+    <view class="list" bindtap="goFun" data-params="yangji">
+      <view class="yangji-img"><image src="../../images/yangji-icon.jpg"></image></view>
+      <view class="yangji-bg"><image src="../../images/yangji.png"></image></view>
+    </view>
+    <view class="list" bindtap="goFun" data-params="fengmi">
+      <view class="fengmi-img"><image src="../../images/fengmi-icon.jpg"></image></view>
+      <view class="fengmi-bg"><image src="../../images/fengmi.png"></image></view>
+    </view>
+  </view>
+</view>
+

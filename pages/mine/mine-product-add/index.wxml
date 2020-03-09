@@ -1,0 +1,49 @@
+<!--pages/mine-farm-aptitude/index.wxml-->
+<view class="mine-product-authentication">
+  <view class="content">
+    <view class="zhizhao"></view>
+    <view class="img">
+      <view class="img-txt"><text></text> 有机/绿色证书</view>
+      <view class="img-txt-item">上传目前您有已的有机/绿色证书</view>
+      <view class="img-tu">
+        <view wx:for="{{imgs1}}" class="img-tu-wrap">
+          <image src="{{item.img}}"></image>
+          <view class="img-close" data-id="{{item.id}}" data-index="{{index}}" bindtap="delImg1">-</view>
+        </view>
+        <view class="img-tu-item" bindtap="chooseImg1">
+          <view class="img-tu-add">+</view>
+          <view class="img-tu-upload">上传图片</view>
+        </view>
+      </view>
+    </view>
+    <view class="img">
+      <view class="img-txt"><text></text> 检测报告</view>
+      <view class="img-txt-item">上传目前您有已的有机/绿色证书</view>
+      <view class="img-tu">
+        <view wx:for="{{imgs2}}" class="img-tu-wrap">
+          <image src="{{item.img}}"></image>
+          <view class="img-close" data-id="{{item.id}}" data-index="{{index}}" bindtap="delImg2">-</view>
+        </view>
+        <view class="img-tu-item" bindtap="chooseImg2">
+          <view class="img-tu-add">+</view>
+          <view class="img-tu-upload" >上传图片</view>
+        </view>
+      </view>
+    </view>
+    <view class="img">
+      <view class="img-txt"><text></text> 其他</view>
+      <view class="img-txt-item">上传其他相关证书</view>
+      <view class="img-tu">
+        <view wx:for="{{imgs3}}" class="img-tu-wrap">
+          <image src="{{item.img}}"></image>
+          <view class="img-close" data-id="{{item.id}}" data-index="{{index}}" bindtap="delImg3">-</view>
+        </view>
+        <view class="img-tu-item" bindtap="chooseImg3">
+          <view class="img-tu-add">+</view>
+          <view class="img-tu-upload" bindtap="chooseImg3">上传图片</view>
+        </view>
+      </view>
+    </view>
+  </view>
+   <view class="btn" bindtap="resultFun">确定</view>
+</view>

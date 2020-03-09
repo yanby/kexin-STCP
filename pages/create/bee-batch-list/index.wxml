@@ -1,0 +1,19 @@
+<!--pages/plant-batch-list/index.wxml-->
+<view class="bee-batch-list">
+  <!-- <view class="title">地块列表 <text>管理</text></view> -->
+  <view class="content">
+    <view class="list" wx:for="{{cropResult}}">
+      <!-- <view class="img"><image></image></view> -->
+      <view class="msg">
+        <view class="name">{{item.variety}}</view>
+        <view class="date">{{item.bee_join_time}} 入箱</view>
+        <view class="batch"><text>蜂群总数:{{item.hive_number}}</text> <text>蜂群号:{{item.bee_number}}</text></view>
+        <view class="area">地址：{{item.location}}</view>
+        <view class="edit" data-o="{{item}}" catchtap="goChangeBatch"><image src="../../../images/edit.png"></image></view>
+        <view class="del" data-id="{{item.id}}" catchtap="delFun"><image src="../../../images/del.png"></image></view>
+      </view>
+    </view>
+  </view>
+  <view class="btn" bindtap="goCreatBatch">添加蜂群批次</view>
+</view>
+

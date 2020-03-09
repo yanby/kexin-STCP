@@ -1,0 +1,22 @@
+<!--pages/plant-change-plot/index.wxml-->
+<view class="plant-change-plot">
+  <view class="type">
+    <text>设施类型</text>
+    <radio-group class="radio-group" bindchange="radioChange">
+      <radio class="radio" wx:for="{{items}}" wx:key="name" value="{{item.id}}" checked="{{type == item.id}}" >
+        <text>{{item.value}}</text>
+      </radio>
+    </radio-group>
+  </view>
+  <view class="list">
+    <text>地块名称：</text>
+    <input type="text" class="weui-input" maxlength="10" placeholder="请输入您的地块名称" value="{{name}}" data-k="name" bindinput="input" />
+  </view>
+  <view class="list">
+    <text>地块面积：</text>
+    <input type="number" class="weui-input" placeholder="请输入您的地块名称" value="{{area}}" data-k="area" bindinput="input" type="digit" />
+    <view class="unit">亩</view>
+  </view>
+  <view class="btn" bindtap="updateCote">确定</view>
+</view>
+

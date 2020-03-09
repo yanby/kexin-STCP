@@ -1,0 +1,7 @@
+/**app.wxss**/
+page {
+  width: 750rpx;
+  margin: 0 auto;
+  background: #f5f5f5;
+  color: #333;
+} 

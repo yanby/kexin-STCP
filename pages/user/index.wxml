@@ -1,0 +1,30 @@
+<!--pages/mine/index.wxml-->
+<view class="mine">
+    <view class="title">
+      <view class="yes-login" wx:if="{{token}}">
+        <view class="yes-status"><image src="../../images/user.png"></image></view>
+        <view class="yes-txt">{{name || '生态诚品'}}</view>
+      </view>
+      <view class="no-login" wx:else>
+        <view class="no-status">未登录</view>
+        <view class="no-btn" bindtap="goFun">
+          <button class='button' plain="true" open-type='getPhoneNumber' form-type="submit" bindgetphonenumber="getPhoneNumber">立即登录</button>
+        </view>
+      </view>
+    </view>
+    <view class="content">
+      <view class="list" bindtap="goHistory">
+        <image src="../../images/lishi.png"></image> 历史记录
+      </view>
+      <view class="list" bindtap="goAptitude">
+        <image src="../../images/zizhi.png"></image> 农场资质
+      </view>
+      <view class="list list2" bindtap="goAuthentication">
+        <image src="../../images/renzheng.png"></image> 产品认证
+      </view>
+      <view class="list list1" bindtap="goPolling">
+        <image src="../../images/xunjian.png"></image> 巡检员入口
+      </view>
+    </view>
+    <view class="btn" bindtap="loginOut" wx:if="{{token}}">退出登录</view>
+</view>

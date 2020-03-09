@@ -1,0 +1,27 @@
+<!--pages/plant-batch-add/index.wxml-->
+<view class="chicken-creat-batch">
+  <view class="content">
+    <view class="list">
+      <text>品种：</text>
+      <input maxlength="10" placeholder="请输入您的作物品种类型" type="text" value="{{type}}" data-k="type" bindinput="input"/>
+    </view>
+    <view class="list">
+      <text>进雏日期：</text>
+      <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+        <view class="picker">
+          {{date}}
+        </view>
+      </picker>
+    </view>
+    <view class="list">
+      <text>进雏数量：</text>
+      <input placeholder="请输入您的进雏数量" type="digit" value="{{num}}" data-k="num" bindinput="input"/>
+      <text class="num">只</text>
+    </view>
+    <view class="list">
+      <text>供雏单位名称：</text>
+      <input placeholder="请输入您的供雏单位名称" type="text" value="{{name}}" data-k="name" bindinput="input"/>
+    </view>
+  </view>
+  <view class="btn" bindtap="addBatch">确定</view>
+</view>

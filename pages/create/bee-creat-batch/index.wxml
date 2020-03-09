@@ -1,0 +1,35 @@
+<!--pages/plant-batch-add/index.wxml-->
+<view class="bee-creat-batch">
+  <view class="content">
+    <view class="list">
+      <text>上代母群号：</text>
+      <input placeholder="请输入上代母群号" type="text" value="{{oneCode}}" bindinput="input" data-k="oneCode"/>
+    </view>
+    <view class="list">
+      <text>蜂王入箱日期：</text>
+      <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+        <view class="picker">
+          {{date}}
+        </view>
+      </picker>
+    </view>
+    <view class="list">
+      <text>蜂群号：</text>
+      <input placeholder="请输入蜂群号" type="text" value="{{code}}" bindinput="input" data-k="code"/>
+    </view>
+    <view class="list">
+      <text>品种：</text>
+      <input maxlength="10" placeholder="请输入蜂群品种" type="text" value="{{variety}}" bindinput="input" data-k="variety"/>
+    </view>
+    <view class="list">
+      <text>蜂群总数：</text>
+      <input placeholder="请输入蜂群总数" type="digit" value="{{total}}" bindinput="input" data-k="total"/>
+      <text class="num">个</text>
+    </view>
+    <view class="list">
+      <text>蜂群位置：</text>
+      <input placeholder="请输入蜂群位置" type="text" value="{{address}}" bindinput="input" data-k="address"/>
+    </view>
+  </view>
+  <view class="btn" bindtap="addBatch">确定</view>
+</view>

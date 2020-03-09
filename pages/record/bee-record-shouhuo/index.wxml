@@ -1,0 +1,83 @@
+<view class="bee-record-shouhuo">
+  <view class="time">
+    <text>选择日期：</text>
+    <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+      <view class="picker">
+        {{date}}
+      </view>
+    </picker>
+  </view>
+  <view class="img">
+    <text>相关图片：</text>
+    <view class="img-item">
+      <view class="img-txt">操作现场</view>
+      <view class="img-tu">
+        <view wx:for="{{imgs1}}" class="img-tu-wrap">
+           <image src="{{item.img}}"></image>
+           <view class="img-close" data-id="{{item.id}}" data-index="{{index}}" bindtap="delImg1">-</view>
+        </view>
+        <view class="img-tu-item" bindtap="chooseImg1">
+          <view class="img-tu-add" >+</view>
+          <view class="img-tu-upload">上传图片</view>
+        </view>
+      </view>
+      <view class="img-txt">采收现场</view>
+      <view class="img-tu">
+        <view wx:for="{{imgs2}}" class="img-tu-wrap">
+           <image src="{{item.img}}"></image>
+           <view class="img-close" data-id="{{item.id}}" data-index="{{index}}" bindtap="delImg2">-</view>
+        </view>
+        <view class="img-tu-item" bindtap="chooseImg2">
+          <view class="img-tu-add">+</view>
+          <view class="img-tu-upload">上传图片</view>
+        </view>
+      </view>
+      <view class="img-txt">采收桶追溯标签</view>
+      <view class="img-tu">
+        <view wx:for="{{imgs3}}" class="img-tu-wrap">
+           <image src="{{item.img}}"></image>
+           <view class="img-close" data-id="{{item.id}}" data-index="{{index}}" bindtap="delImg3">-</view>
+        </view>
+        <view class="img-tu-item" bindtap="chooseImg3">
+          <view class="img-tu-add">+</view>
+          <view class="img-tu-upload">上传图片</view>
+        </view>
+      </view>
+    </view>
+  </view>
+ 
+   <view class="txt">
+    <text class="txt-three">蜂蜜量：</text>
+    <input class="txt-input2" placeholder="请输入蜂蜜量" type="digit" value="{{fengmi}}" data-k="fengmi" bindinput="input"></input>千克
+  </view>
+   <view class="txt">
+    <text class="txt-three">王浆量：</text>
+    <input class="txt-input2" placeholder="请输入王浆量" type="digit" value="{{yujiang}}" data-k="yujiang" bindinput="input"></input>千克
+  </view>
+   <view class="txt">
+    <text class="txt-three">花粉量：</text>
+    <input class="txt-input2" placeholder="请输入花粉量" type="digit" value="{{huafeng}}" data-k="huafeng" bindinput="input"></input>千克
+  </view>
+   <view class="txt">
+    <text class="txt-three">蜂蜡量：</text>
+    <input class="txt-input2" placeholder="请输入蜂蜡量" type="digit" value="{{fengla}}" data-k="fengla" bindinput="input"></input>千克
+  </view>
+   <view class="txt">
+    <text class="txt-three">蜂胶量：</text>
+    <input class="txt-input2" placeholder="请输入蜂胶量" type="digit" value="{{fengjiao}}" data-k="fengjiao" bindinput="input"></input>千克
+  </view>
+  <view class="voice">
+    <text>说点什么：</text>
+    <view class="voice-textarea">
+      <textarea bindblur="bindTextAreaBlur" auto-height value='{{content}}'/>
+       <button class="yuyinBtn {{recordState == true ? 'yuyinBtnBg':''}}" bindtouchstart="touchStart" bindtouchend="touchEnd">
+        <text wx:if="{{recordState == false}}">按住 说话</text>
+         <text class="songkai" wx:else>松开 结束</text>
+      </button>
+    </view>
+  </view>
+  <view class="btn">
+    <view class="hold" data-id="0" bindtap="configFun">暂存</view>
+    <view class="config" data-id="1" bindtap="configFun">确认完成</view>
+  </view>
+</view>

@@ -1,0 +1,81 @@
+<view class="bee-record-huanjing">
+  <view class="time">
+    <text>选择日期：</text>
+    <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+      <view class="picker">
+        {{date}}
+      </view>
+    </picker>
+  </view>
+  <view class="txt">
+    <text>放蜂地点：</text>
+    <input class="txt-input2" placeholder="请输入您的放蜂地点" type="text" value="{{address}}" data-k="address" bindinput="input"></input>
+  </view>
+  <view class="repeat">
+    <text>蜜源植物：</text>
+    <view class="repeat-item">
+      <view class="repeat-txt" bindtap="unfold1"><text class="repeat-shouqi" wx:if="{{flag1}}">收起</text><text wx:else class="repeat-zhankai">展开</text> </view>
+        <view class="repeat-up" wx:if="{{flag1}}">
+          <view class="repeat-wrap" wx:for="{{plantsImgs}}" wx:for-index="i" wx:for-item="p" >
+          <view class="repeat-inputs">
+            <text>蜜源植物：</text>
+            <input class="repeat-input" bindinput="miyuanInput" data-num="{{i}}" type="text" value="{{p.batch_bee_plant}}"></input>
+          </view>
+          <view class="repeat-tu">
+            <view wx:for="{{p.imgs}}" wx:for-index="i2" wx:for-item="img" class="repeat-tu-wrap">
+              <image src="{{img}}"></image>
+              <view class="repeat-close" data-id="{{img.id}}" data-index1="{{i}}"  data-index2="{{i2}}"  bindtap="delImg1">-</view>
+            </view>
+            <view class="repeat-tu-item" data-num="{{i}}" bindtap="chooseImg1" >
+              <view class="repeat-tu-add">+</view>
+              <view class="repeat-tu-upload">上传图片</view>
+            </view>
+          </view>
+        </view>
+        <view class="repeat-add" bindtap="miyuanAdd" >继续添加</view>
+      </view>
+    
+    </view>
+  </view>
+   <view class="repeat">
+    <text>水源地：</text>
+    <view class="repeat-item">
+      <view class="repeat-txt" bindtap="unfold2"><text class="repeat-shouqi" wx:if="{{flag2}}">收起</text><text wx:else class="repeat-zhankai">展开</text> </view>
+        <view class="repeat-up" wx:if="{{flag2}}">
+          <view class="repeat-wrap" wx:for="{{headwatersImgs}}" wx:for-index="i" wx:for-item="p" >
+          <view class="repeat-inputs">
+            <text>水源地：</text>
+            <input class="repeat-input" bindinput="shuiyuanInput" data-num="{{i}}" type="text" value="{{p.batch_bee_headwaters_location}}"></input>
+          </view>
+          <view class="repeat-tu">
+            <view wx:for="{{p.imgs}}" wx:for-index="i2" wx:for-item="img" class="repeat-tu-wrap">
+              <image src="{{img}}"></image>
+              <view class="repeat-close" data-id="{{img.id}}" data-index1="{{i}}"  data-index2="{{i2}}"  bindtap="delImg2">-</view>
+            </view>
+            <view class="repeat-tu-item" data-num="{{i}}" bindtap="chooseImg2" >
+              <view class="repeat-tu-add">+</view>
+              <view class="repeat-tu-upload">上传图片</view>
+            </view>
+          </view>
+        </view>
+        <view class="repeat-add" bindtap="shuiyuanAdd" >继续添加</view>
+      </view>
+    
+    </view>
+  </view>
+ 
+  <view class="voice">
+    <text>说点什么：</text>
+    <view class="voice-textarea">
+      <textarea bindblur="bindTextAreaBlur" auto-height value='{{content}}'/>
+       <button class="yuyinBtn {{recordState == true ? 'yuyinBtnBg':''}}" bindtouchstart="touchStart" bindtouchend="touchEnd">
+        <text wx:if="{{recordState == false}}">按住 说话</text>
+         <text class="songkai" wx:else>松开 结束</text>
+      </button>
+    </view>
+  </view>
+  <view class="btn">
+    <view class="hold" data-id="0" bindtap="configFun">暂存</view>
+    <view class="config" data-id="1" bindtap="configFun">确认完成</view>
+  </view>
+</view>

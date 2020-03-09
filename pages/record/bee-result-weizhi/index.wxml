@@ -1,0 +1,31 @@
+<!--pages/record-history/index.wxml-->
+<view class="bee-result-weizhi">
+  <view class="record-content">
+    <view class="time">记录于{{toDay.create_time}}</view>
+    <view class="msg">
+      <view class="msg-base">
+        <image src="../../../images/record-peng.png"></image>   
+        {{batchInfo.cote_type}}{{batchInfo.cote_name}}-{{batchInfo.batch_time}}-{{batchInfo.crop}}-{{batchInfo.variety}}
+      </view>
+      <view class="msg-date">
+        <image src="../../../images/record-date.png"></image> 
+        农事日期 {{toDay.info_time}}
+      </view>
+       <view class="msg-input" wx:if="{{toDay.new_location}}">
+        <text>新位置：</text> <text>{{toDay.new_location}}</text>
+      </view>
+      <view class="msg-list" wx:if="{{toDay.imgs.length}}">
+        <view class="msg-img">
+          <image bindtap="imgBig" data-src="{{toDay.imgs}}" wx:for="{{toDay.imgs}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+        </view>
+      </view>
+     
+    
+      <view class="msg-txt" wx:if="{{toDay.text}}">{{toDay.text}}</view>
+      <view class="btn" wx:if="{{status}}">
+        <view class="hold" data-id="{{toDay.id}}" bindtap="addFun">增补信息</view>
+        <view class="config" bindtap="configFun">确认完成</view>
+      </view>
+    </view>
+  </view>
+</view>

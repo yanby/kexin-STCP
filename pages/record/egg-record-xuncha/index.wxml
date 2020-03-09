@@ -1,0 +1,90 @@
+<view class="plant-record-zhibao">
+  <view class="time">
+    <text>选择日期：</text>
+    <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+      <view class="picker">
+        {{date}}
+      </view>
+    </picker>
+  </view>
+  <view class="img">
+    <text>相关图片：</text>
+    <view class="img-item">
+      <!-- <view class="img-txt">最多可上传9张</view> -->
+      <view class="img-tu">
+        <view wx:for="{{imgs1}}" class="img-tu-wrap">
+           <image src="{{item.img}}"></image>
+           <view class="img-close" data-id="{{item.id}}" data-index="{{index}}" bindtap="delImg1">-</view>
+        </view>
+        <view class="img-tu-item" bindtap="chooseImg1">
+          <view class="img-tu-add" >+</view>
+          <view class="img-tu-upload">上传图片</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="select">
+    <text>饲料选择：</text>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker">
+       {{array[index]}}
+      </view>
+    </picker>
+  </view> -->
+  <!-- <view class="repeat">
+    <text>蜜源植物：</text>
+    <view class="repeat-item">
+      <view class="repeat-txt"><text class="repeat-zhankai">展开</text> <text class="repeat-shouqi">收起</text></view>
+      <view class="repeat-wrap">
+        <view class="repeat-inputs">
+          <text>蜜源植物1：</text>
+          <input class="repeat-input" type="text"></input>
+        </view>
+        <view class="repeat-tu">
+          <view wx:for="{{4}}" class="repeat-tu-wrap">
+            <image  src=""></image>
+            <view class="repeat-close">-</view>
+          </view>
+          <view class="repeat-tu-item">
+            <view class="repeat-tu-add">+</view>
+            <view class="repeat-tu-upload">上传图片</view>
+          </view>
+        </view>
+        <view class="repeat-add">继续添加</view>
+      </view>
+    </view>
+  </view> -->
+  <view class="txt">
+    <text>死亡数量：</text>
+    <input class="txt-input2" placeholder="请输入死亡数量" type="digit" value="{{num}}" data-k="num" bindinput="input" ></input>只
+
+    <!-- <input class="txt-input1" type="text"></input> -->
+    <!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="txt-picker">
+        {{array[index]}} 
+      </view>
+    </picker> -->
+    <!-- <view class="txt-danwei">
+      <picker-view
+       mask-class="txt-mengceng" value="{{value}}" bindchange="onePickerChange">
+        <picker-view-column>
+          <view wx:for="{{array}}">{{item}}</view>
+        </picker-view-column>
+      </picker-view>
+    </view> -->
+  </view>
+  <view class="voice">
+    <text>说点什么：</text>
+    <view class="voice-textarea">
+      <textarea bindblur="bindTextAreaBlur" auto-height value='{{content}}'/>
+       <button class="yuyinBtn {{recordState == true ? 'yuyinBtnBg':''}}" bindtouchstart="touchStart" bindtouchend="touchEnd">
+        <text wx:if="{{recordState == false}}">按住 说话</text>
+        <text class="songkai" wx:else>松开 结束</text>
+      </button>
+    </view>
+  </view>
+  <view class="btn">
+    <view class="hold" data-id="0" bindtap="configFun">暂存</view>
+    <view class="config" data-id="1" bindtap="configFun">确认完成</view>
+  </view>
+</view>

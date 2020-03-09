@@ -1,0 +1,39 @@
+<view class="bee-record-xuncha">
+  <view class="time">
+    <text>选择日期：</text>
+    <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+      <view class="picker">
+        {{date}}
+      </view>
+    </picker>
+  </view>
+  <view class="img">
+    <text>相关图片：</text>
+    <view class="img-item">
+      <view class="img-tu">
+        <view wx:for="{{imgs1}}" class="img-tu-wrap">
+           <image src="{{item.img}}"></image>
+           <view class="img-close" data-id="{{item.id}}" data-index="{{index}}" bindtap="delImg1">-</view>
+        </view>
+        <view class="img-tu-item" bindtap="chooseImg1">
+          <view class="img-tu-add" >+</view>
+          <view class="img-tu-upload">上传图片</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="voice">
+    <text>说点什么：</text>
+    <view class="voice-textarea">
+      <textarea bindblur="bindTextAreaBlur" auto-height value='{{content}}'/>
+       <button class="yuyinBtn {{recordState == true ? 'yuyinBtnBg':''}}" bindtouchstart="touchStart" bindtouchend="touchEnd">
+        <text wx:if="{{recordState == false}}">按住 说话</text>
+        <text class="songkai" wx:else>松开 结束</text>
+      </button>
+    </view>
+  </view>
+  <view class="btn">
+    <view class="hold" data-id="0" bindtap="configFun">暂存</view>
+    <view class="config" data-id="1" bindtap="configFun">确认完成</view>
+  </view>
+</view>

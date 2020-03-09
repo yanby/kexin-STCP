@@ -1,0 +1,46 @@
+<!--pages/plant-plot-list/index.wxml-->
+<view class="chicken-plot-list">
+  <view class="title">
+    <text class="{{titleActiveId == item.id ? 'cur' : ''}}" wx:key="{{item.id}}" wx:for="{{titleArr}}" data-id="{{item.id}}" bindtap="titleActiveFun">{{item.name}}</text>
+  </view>
+  <view class="content" wx:if="{{cotes.length != 0}}">
+
+    <view class="jichang" wx:if="{{titleActiveId==0}}">
+      <view class="list" data-id="{{item.id}}" bindtap="gobatchList" wx:for="{{cotes}}" >
+        <!-- <view class="img"><image></image></view> -->
+        <view class="msg">
+          <view class="code">{{item.name}}</view>
+          <view class="batch" wx:if="{{item.style_mode == 'scattered'}}" >养殖方式：散养</view>
+          <view class="batch" wx:if="{{item.style_mode == 'cage'}}" >养殖方式：笼养</view>
+          <view class="batch" wx:if="{{item.style_mode == 'floor'}}" >养殖方式：地面平养</view>
+          <view class="batch" wx:if="{{item.style_mode == 'net'}}" >养殖方式：网上平养</view>
+          
+          <view class="area"><text>{{item.area}}平</text></view>
+          <view class="num">作物批次：{{item.batch_count}}</view>
+          <view class="edit" catchtap="goChangePlot" data-o="{{item}}" >
+            <image src="../../../images/edit.png"></image>
+          </view>
+          <view class="del" catchtap="delFun" data-id="{{item.id}}"><image src="../../../images/del.png"></image></view>
+        </view>
+      </view>
+    </view>
+    
+    <view class="siliao" wx:elif="{{titleActiveId==1}}">
+      <view class="list" wx:for="{{forages}}" >
+        <!-- <view class="img"><image></image></view> -->
+        <view class="msg">
+          <view class="code">{{item.name}}</view>
+          <view class="batch"><span wx:for="{{item.eggForageFormulas}}" wx:for-item="formula">{{formula.k}}：{{formula.v}}% <text>、</text>  </span></view>
+          <view class="edit" catchtap="goChangeForage" data-o="{{item}}" ><image src="../../../images/edit.png"></image></view>
+          <view class="del" catchtap="delForage" data-id="{{item.id}}" ><image src="../../../images/del.png"></image></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="no-dikuai" wx:else>
+    <view class="no-img"><image src="../../../images/no-dikuai.png"></image></view>
+    <view class="no-txt">暂无地块，去添加个吧~</view>
+  </view>
+  <view wx:if="{{titleActiveId==0}}" class="btn" bindtap="goCreatPlot">添加地块</view>
+  <view wx:if="{{titleActiveId==1}}" class="btn" bindtap="goCreatRecipe">添加饲料配方</view>
+</view>

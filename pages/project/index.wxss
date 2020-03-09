@@ -1,0 +1,40 @@
+/* pages/project/index.wxss */
+.project-bg{
+  width: 750rpx;
+  height: 150rpx;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+.project-bg image{
+  width: 100%;
+  height: 100%;
+}
+.content{
+  position: relative;
+  top: 54rpx;
+}
+.list{
+  width:672rpx;
+  height:231rpx;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  background: #fff;
+  margin-bottom: 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.zhongzhi-img,.yangji-img,.fengmi-img{
+  width:192rpx;
+  height:192rpx;
+  margin: 20rpx 0 0 30rpx;
+}
+.zhongzhi-bg,.yangji-bg,.fengmi-bg{
+  width: 298rpx;
+  height: 232rpx;
+}
+.list image{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}

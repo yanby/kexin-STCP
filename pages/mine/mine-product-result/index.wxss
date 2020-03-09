@@ -1,0 +1,95 @@
+.content{
+  padding: 0 30rpx 150rpx;
+}
+.tips{
+  width: 680rpx;
+  margin: 20rpx auto;
+  font-size: 26rpx;
+}
+.img{
+  font-size: 30rpx;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+  background: #fff;
+}
+.img-txt{
+  position: relative;
+  margin-left: 30rpx;
+}
+.img-txt-item{
+  margin-left: 30rpx;
+  font-size: 26rpx;
+  color: #666666;
+  padding-bottom: 20rpx;
+}
+.img-txt text{
+  position: absolute;
+  left: -10rpx;
+  top: 36rpx;
+  background: #2cc290;
+  width:3rpx;
+  height:31rpx;
+}
+.img-txt{
+  font-size: 32rpx;
+  font-weight: bold;
+  padding-top: 30rpx;
+  margin-bottom: 20rpx;
+}
+.img-tu-wrap{
+   display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  border-radius: 5rpx;
+  margin: 20rpx 30rpx;
+}
+.img-tu image{
+  width:168rpx;
+  height:198rpx;
+  margin: 10rpx;
+}
+.img-tu-item{
+  width:168rpx;
+  height:198rpx;
+  border: 1rpx solid #ccc;
+  margin: 20rpx 30rpx;
+}
+.img-tu-add{
+   height:198rpx;
+   line-height: 198rpx;
+  font-size: 30rpx;
+  text-align: center;
+  color: #CCCCCC;
+}
+.img-tu-upload{
+  font-size: 26rpx;
+  color: #CCCCCC;
+  text-align: center;
+}
+
+.img-close{
+  position: absolute;
+  right: -20rpx;
+  top: -20rpx;
+  width:40rpx;
+  height:40rpx;
+  text-align: center;
+  line-height: 35rpx;
+  background: #ff3b30;
+  font-size: 50rpx;
+  color: #fff;
+  border-radius: 50%;
+}
+.btn{
+  position: fixed;
+  left: 60rpx;
+  bottom: 30rpx;
+  width:632rpx;
+  height:83rpx;
+  line-height: 83rpx;
+  text-align: center;
+  font-size: 30rpx; 
+  background: #15ba82;
+  color: #fff;
+  border-radius: 50rpx;
+}

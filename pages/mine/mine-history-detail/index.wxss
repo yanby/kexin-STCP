@@ -1,0 +1,142 @@
+/* pages/record-history/index.wxss */
+.time{
+  font-size: 30rpx;
+  color: #CCCCCC;
+  text-align: center;
+  height: 107rpx;
+  line-height: 107rpx;
+}
+.msg{
+  font-size: 30rpx;
+  padding: 40rpx 40rpx 100rpx 95rpx;
+  background: #fff;
+ 
+}
+.msg-wrap{
+  position: relative; 
+  margin-bottom: 20rpx;
+}
+.yuan{
+  width: 20rpx;
+  height: 20rpx;
+  background: #dddde0;
+  border-radius: 50%;
+  position: absolute;
+  left: -50rpx;
+  top: 0;
+}
+.line{
+  position: absolute;
+  left: -40rpx;
+  top: 20rpx;
+  height: 100%;
+  width: 2rpx;
+  background: #dddde0;
+}
+.msg-base{
+   margin-bottom: 40rpx;
+   font-weight: bold;
+}
+.msg-input{
+  padding-bottom: 40rpx;
+  font-size: 30rpx;
+
+}
+.msg-input text:nth-of-type(1){
+  font-weight: bold;
+  margin-right: 50rpx;
+}
+.msg-base image,.msg-date image{
+  width: 38rpx;
+  height: 38rpx;
+  vertical-align: text-bottom;
+  margin-right: 5rpx;
+}
+.msg-wrap:last-of-type .line{
+  display: none;
+}
+.msg-date{
+  padding-bottom: 40rpx;
+  font-weight: bold;
+}
+.msg-date text{
+  display: inline-block;
+  margin-left: 20rpx;
+  padding: 4rpx 15rpx;
+  background: #f6ebdb;
+  color: #A56734;
+  font-size: 24rpx;
+  border-radius: 20rpx;
+}
+.msg-img{
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 40rpx;
+}
+.msg-title{
+  font-size:  30rpx;
+  margin-bottom: 10rpx;
+  color: #333;
+}
+.msg-list image{
+  width:196rpx;
+  height:196rpx;
+  margin: 15rpx 10rpx 0rpx 0;
+}
+.msg-txt{
+  width: 590rpx;
+  min-height: 20rpx;
+  border-radius: 10rpx;
+  background:#f5f5f5;
+  padding: 20rpx;
+}
+.btn{
+  width: 632rpx;
+  height:83rpx;
+  line-height: 83rpx;
+  color:#fff;
+  display: flex;
+  text-align: center;
+  font-size: 30rpx;
+  margin: 100rpx auto 50rpx;
+}
+.hold{
+  width: 316rpx;
+  border-radius: 100rpx 0  0 100rpx;
+  background: #6fd3b1;
+}
+.config{
+  width: 316rpx;
+  background: #15bc84;
+  border-radius: 0 100rpx 100rpx 0;
+}
+.select{
+  width: 600rpx;
+  display: flex;
+  margin: 40rpx auto 20rpx;
+  font-size: 30rpx;
+  text-align: center;
+}
+.select text{
+  margin-right: 30rpx;
+  height:61rpx;
+  line-height: 61rpx;
+}
+.picker{
+  width:420rpx;
+  height:61rpx;
+  line-height: 61rpx;
+  background: #fff;
+  border-radius: 5rpx;
+  position: relative;
+}
+.picker::after{
+  position: absolute;
+  right: 15rpx;
+  top: 50%;
+  content: '';
+  border-top: 10rpx #000 dashed;
+  border-left: 10rpx transparent dashed;
+  border-bottom: 10rpx transparent dashed;
+  border-right: 10rpx transparent solid;
+}

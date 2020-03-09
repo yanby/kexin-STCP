@@ -1,0 +1,18 @@
+<!--pages/plant-batch-list/index.wxml-->
+<view class="chicken-batch-list">
+  <!-- <view class="title">地块列表 <text>管理</text></view> -->
+  <view class="content">
+    <view class="list" bindtap="gobatchList" wx:for="{{cropResult}}">
+      <!-- <view class="img"><image></image></view> -->
+      <view class="msg">
+        <view class="code">{{item.variety}}</view>
+        <view class="batch">{{item.buy_time}}进雏</view>
+        <view class="area"><text>{{item.buy_number}}只</text></view>
+        <view class="edit" data-o="{{item}}" catchtap="goChangeBatch"><image src="../../../images/edit.png"></image></view>
+        <view class="del" data-id="{{item.id}}" catchtap="delFun"><image src="../../../images/del.png"></image></view>
+      </view>
+    </view>
+  </view>
+  <view class="btn" bindtap="goCreatBatch">添加批次</view>
+</view>
+

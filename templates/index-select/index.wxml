@@ -1,0 +1,78 @@
+<template name="index-select">
+
+  <view class="index-select">
+    <view class="select-wrap">
+      <view class="select-title">今日记录提醒
+        <view class="select-close" bindtap="closeSelect"><image src="{{imgUrl.close}}"></image></view>
+      </view>
+      <view class='select-content'>
+        <scroll-view scroll-y style="height: 600rpx;">
+          <view class="select-scroll">
+            <view class="select-list">
+              <view class="select-one">
+                <view class="name">西红柿</view>
+                <view class="nongshi">最近农事：播种（1天）</view>
+              </view>
+              <view class="select-two">
+                <view class="penghao">1号棚 0830</view>
+                <view class="next">下一农事：<text>出苗</text></view>
+              </view>
+            </view>
+             <view class="select-list">
+              <view class="select-one">
+                <view class="name">西红柿</view>
+                <view class="nongshi">最近农事：播种（1天）</view>
+              </view>
+              <view class="select-two">
+                <view class="penghao">1号棚 0830</view>
+                <view class="next">下一农事：<text>出苗</text></view>
+              </view>
+            </view>
+             <view class="select-list">
+              <view class="select-one">
+                <view class="name">西红柿</view>
+                <view class="nongshi">最近农事：播种（1天）</view>
+              </view>
+              <view class="select-two">
+                <view class="penghao">1号棚 0830</view>
+                <view class="next">下一农事：<text>出苗</text></view>
+              </view>
+            </view>
+             <view class="select-list">
+              <view class="select-one">
+                <view class="name">西红柿</view>
+                <view class="nongshi">最近农事：播种（1天）</view>
+              </view>
+              <view class="select-two">
+                <view class="penghao">1号棚 0830</view>
+                <view class="next">下一农事：<text>出苗</text></view>
+              </view>
+            </view>
+             <view class="select-list">
+              <view class="select-one">
+                <view class="name">西红柿</view>
+                <view class="nongshi">最近农事：播种（1天）</view>
+              </view>
+              <view class="select-two">
+                <view class="penghao">1号棚 0830</view>
+                <view class="next">下一农事：<text>出苗</text></view>
+              </view>
+            </view>
+             <view class="select-list">
+              <view class="select-one">
+                <view class="name">西红柿</view>
+                <view class="nongshi">最近农事：播种（1天）</view>
+              </view>
+              <view class="select-two">
+                <view class="penghao">1号棚 0830</view>
+                <view class="next">下一农事：<text>出苗</text></view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+      <view class="select-btn"><text bindtap="closeSelect">我知道了</text></view>
+    </view>
+  </view>
+
+</template>

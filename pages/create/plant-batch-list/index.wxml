@@ -1,0 +1,17 @@
+<!--pages/plant-batch-list/index.wxml-->
+<view class="plant-batch-list">
+  <!-- <view class="title">地块列表 <text>管理</text></view> -->
+  <view class="content">
+    <view class="list" wx:for="{{cropResult}}">
+      <!-- <view class="img"><image></image></view> -->
+      <view class="msg">
+        <view class="name">{{item.crop}}-{{item.variety}}</view>
+        <view class="batch">{{item.batch_time}}</view>
+        <view class="edit" catchtap="goChangeBatch" data-o="{{item}}"><image src="../../../images/edit.png"></image></view>
+        <view class="del" catchtap="delFun" data-id="{{item.id}}"><image src="../../../images/del.png"></image></view>
+      </view>
+    </view>
+  </view>
+  <view class="btn" bindtap="goCreatBatch">添加作物</view>
+</view>
+

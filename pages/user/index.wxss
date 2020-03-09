@@ -1,0 +1,99 @@
+/* pages/mine/index.wxss */
+.title{
+  width: 750rpx;
+  height: 300rpx;
+  background: #cda273;
+}
+.no-status{
+  width:167rpx;
+  height:167rpx;
+  background: #fff;
+  border-radius: 50%;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 167rpx;
+  color: #7A8189;
+  font-size: 38rpx;
+}
+.no-btn{
+  width:230rpx;
+  height:70rpx;
+  margin: 20rpx auto;
+  font-size: 28rpx;
+  color: #fff;
+  border: 1rpx solid #fff;
+  border-radius: 10rpx;
+  text-align: center;
+}
+.no-btn .button{
+  width:224rpx;
+  height:66rpx;
+  line-height: 66rpx;
+  font-size: 28rpx;
+  color: #fff;
+  border: none;
+}
+.yes-status{
+  width: 167rpx;
+  height: 167rpx;
+  padding-top: 30rpx;
+  margin: 0 auto 20rpx;
+}
+.yes-status image{
+  width: 167rpx;
+  height: 167rpx;
+}
+.yes-txt{
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
+}
+.content{
+  margin-top: 20rpx;
+}
+.list{
+  width: 670rpx;
+  padding: 0 40rpx;
+  height: 111rpx;
+  line-height: 111rpx;
+  font-size: 30rpx;
+  background: #fff;
+  position: relative;
+  border-bottom: 1rpx solid #eaeaea;
+}
+.list::after{
+  position: absolute;
+  top: 45rpx;
+  right: 30rpx;
+  content: '';            
+  display: block;            
+  width: 25rpx;            
+  height: 25rpx;            
+  border-right: 1rpx solid #888;            
+  border-top: 1rpx solid #888;           
+  transform: rotate(45deg);
+}
+.list image{
+  width: 42rpx;
+  vertical-align: text-bottom;
+  margin-right: 20rpx;
+  height: 45rpx;
+}
+.list2{
+  border: none;
+}
+.list1{
+  margin-top: 40rpx;
+  border: none;
+}
+.btn{
+  width:300rpx;
+  height:100rpx; 
+  line-height: 100rpx;
+  text-align: center;
+  color: #15BC84;
+  border-radius: 100rpx;
+  margin: 100rpx auto 0;
+  background: #fff;
+  font-size: 30rpx;
+}

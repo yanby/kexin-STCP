@@ -1,0 +1,417 @@
+<!--pages/record-history/index.wxml-->
+<view class="record-history">
+  <view class="record-content">
+    <view class="select">
+      <text>选择农事：</text>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="{{'name'}}">
+        <view class="picker">
+        {{array[index].name}}
+        </view>
+      </picker>
+    </view>
+    <view class="msg">
+      <view class="msg-wrap" wx:for="{{cropInfos}}" wx:if="{{batchType == 'crop'}}">
+        <view class="msg-inner" wx:if="{{item.type_name == '日常巡查'}}">
+          <view class="yuan"></view>
+          <view class="line"></view>
+          <view class="msg-date">
+            <image src="../../../images/record-date.png"></image> 
+            {{item.info_time}} <text>{{item.type_name}}</text>
+          </view>
+          <view class="msg-list" wx:if="{{item.imgs.length}}">
+            <!-- <view class="msg-title">药剂外包装正面</view> -->
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.imgs}}" wx:for="{{item.imgs}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+                </view>
+              </view>
+              <view class="msg-txt" wx:if="{{item.text}}">{{item.text}}</view>
+            </view>
+            <view class="msg-inner" wx:elif="{{item.type_name == '肥料投入'}}">
+              <view class="yuan"></view>
+              <view class="line"></view>
+              <view class="msg-date">
+                <image src="../../../images/record-date.png"></image> 
+                {{item.info_time}} <text>{{item.type_name}}</text>
+              </view>
+              <view class="msg-list" wx:if="{{item.muckCons.length}}">
+                <view class="msg-title">肥料外包装正面</view>
+                <view class="msg-img">
+                  <image bindtap="imgBig" data-src="{{item.muckCons}}" wx:for="{{item.muckCons}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+                </view>
+              </view>
+              <view class="msg-list" wx:if="{{item.muckFaces.length}}">
+                <view class="msg-title">肥料外包装反面</view>
+                <view class="msg-img">
+                  <image bindtap="imgBig" data-src="{{item.muckFaces}}" wx:for="{{item.muckFaces}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+                </view>
+              </view>
+              <view class="msg-list" wx:if="{{item.spots.length}}">
+                <view class="msg-title">施肥现场</view>
+                <view class="msg-img">
+                  <image bindtap="imgBig" data-src="{{item.spots}}" wx:for="{{item.spots}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+                </view>
+              </view>
+              <view class="msg-input" wx:if="{{item.muck_name}}">
+                <text>肥料名称：</text> <text>{{item.muck_name}}</text>
+              </view>
+              <view class="msg-input" wx:if="{{item.muck_measure}}">
+                <text>肥料用量：</text> <text>{{item.muck_measure}}</text>
+              </view>
+              <view class="msg-txt" wx:if="{{item.text}}">{{item.text}}</view>
+            </view>
+            <view class="msg-inner" wx:elif="{{item.type_name == '采收'}}">
+              <view class="yuan"></view>
+              <view class="line"></view>
+              <view class="msg-date">
+                <image src="../../../images/record-date.png"></image> 
+                {{item.info_time}} <text>{{item.type_name}}</text>
+              </view>
+              <view class="msg-list" wx:if="{{item.imgs.length}}">
+                <view class="msg-title">现场操作图</view>
+                <view class="msg-img">
+                  <image bindtap="imgBig" data-src="{{item.imgs}}" wx:for="{{item.imgs}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+                </view>
+              </view>
+              <view class="msg-input" wx:if="{{item.recovery_measure}}">
+                <text>采收量：</text> <text>{{item.recovery_measure}}千克</text>
+              </view>
+              <view class="msg-txt" wx:if="{{item.text}}">{{item.text}}</view>
+            </view>
+            <view class="msg-inner" wx:elif="{{item.type_name == '植保投入'}}">
+              <view class="yuan"></view>
+              <view class="line"></view>
+              <view class="msg-date">
+                <image src="../../../images/record-date.png"></image> 
+                {{item.info_time}} <text>{{item.type_name}}</text>
+              </view>
+              <view class="msg-list" wx:if="{{item.drugCons.length}}">
+            <view class="msg-title">药剂外包装正面</view>
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.drugCons}}" wx:for="{{item.drugCons}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+            </view>
+          </view>
+          <view class="msg-list" wx:if="{{item.drugFaces.length}}">
+            <view class="msg-title">药剂外包装反面</view>
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.drugFaces}}" wx:for="{{item.drugFaces}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+            </view>
+          </view>
+          <view class="msg-list" wx:if="{{item.spots.length}}">
+            <view class="msg-title">施药现场</view>
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.spots}}" wx:for="{{item.spots}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+            </view>
+          </view>
+          <view class="msg-input" wx:if="{{item.prevention_object}}">
+            <text>防治对象：</text> <text>{{item.prevention_object}}</text>
+          </view>
+          <view class="msg-input" wx:if="{{item.drug_name}}">
+            <text>肥料名称：</text> <text>{{item.drug_name}}</text>
+          </view>
+          <view class="msg-input" wx:if="{{item.measure}}">
+            <text>肥料用量：</text> <text>{{item.measure}}</text>
+          </view>
+          <view class="msg-txt" wx:if="{{item.text}}">{{item.text}}</view>
+        </view>
+      </view>
+      <view class="msg-wrap" wx:for="{{cropInfos}}" wx:if="{{batchType == 'egg'}}">
+        <view class="msg-inner" wx:if="{{item.type_name == '日常巡查'}}">
+          <view class="yuan"></view>
+          <view class="line"></view>
+          <view class="msg-date">
+            <image src="../../../images/record-date.png"></image> 
+            {{item.info_time}} <text>{{item.type_name}}</text>
+          </view>
+          <view class="msg-list" wx:if="{{item.imgs.length}}">
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.imgs}}" wx:for="{{item.imgs}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+            </view>
+          </view>
+
+          <view class="msg-input" wx:if="{{item.die_num}}">
+            <text>死亡数量：</text> <text>{{item.die_num}}只</text>
+          </view>
+          <view class="msg-txt" wx:if="{{item.text}}">{{item.text}}</view>
+        </view>
+
+        <view class="msg-inner" wx:elif="{{item.type_name == '药剂投入'}}">
+          <view class="yuan"></view>
+          <view class="line"></view>
+          <view class="msg-date">
+            <image src="../../../images/record-date.png"></image> 
+            {{item.info_time}} <text>{{item.type_name}}</text>
+          </view>
+          <view class="msg-list" wx:if="{{item.drugCons.length}}">
+            <view class="msg-title">药剂外包装正面</view>
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.drugCons}}" wx:for="{{item.drugCons}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+            </view>
+          </view>
+          <view class="msg-list" wx:if="{{item.drugFaces.length}}">
+            <view class="msg-title">药剂外包装反面</view>
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.drugFaces}}" wx:for="{{item.drugFaces}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+            </view>
+          </view>
+          <view class="msg-list" wx:if="{{item.spots.length}}">
+            <view class="msg-title">施药现场</view>
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.spots}}" wx:for="{{item.spots}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+            </view>
+          </view>
+          <view class="msg-input" wx:if="{{item.prevention_object}}">
+            <text>防治对象：</text> <text>{{item.prevention_object}}</text>
+          </view>
+          <view class="msg-input" wx:if="{{item.drug_name}}">
+            <text>肥料名称：</text> <text>{{item.drug_name}}</text>
+          </view>
+          <view class="msg-input" wx:if="{{item.measure}}">
+            <text>肥料用量：</text> <text>{{item.measure}}</text>
+          </view>
+          <view class="msg-txt" wx:if="{{item.text}}">{{item.text}}</view>
+        </view>
+
+        <view class="msg-inner" wx:elif="{{item.type_name == '饲料投入'}}">
+          <view class="yuan"></view>
+          <view class="line"></view>
+          <view class="msg-date">
+            <image src="../../../images/record-date.png"></image> 
+            {{item.info_time}} <text>{{item.type_name}}</text>
+          </view>
+          <view class="msg-input" wx:if="{{item.forage_name}}">
+            <text>饲料选择：</text> <text>{{item.forage_name}}</text>
+          </view>
+          <view class="msg-list" wx:if="{{item.forageFaces.length}}">
+            <view class="msg-title">饲料外包装</view>
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.forageFaces}}" wx:for="{{item.forageFaces}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+            </view>
+          </view>
+          <view class="msg-list" wx:if="{{item.spots.length}}">
+            <view class="msg-title">饲喂现场</view>
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.spots}}" wx:for="{{item.spots}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+            </view>
+          </view>
+          <view class="msg-input" wx:if="{{item.feed_num}}">
+            <text>饲喂量：</text> <text>{{item.feed_num}}千克</text>
+          </view>
+          <view class="msg-txt" wx:if="{{item.text}}">{{item.text}}</view>
+        </view>
+
+        <view class="msg-inner" wx:elif="{{item.type_name == '死淘记录'}}">
+          <view class="yuan"></view>
+          <view class="line"></view>
+          <view class="msg-date">
+            <image src="../../../images/record-date.png"></image> 
+            {{item.info_time}} <text>{{item.type_name}}</text>
+          </view>
+          <view class="msg-input" wx:if="{{item.handle}}">
+            <text>处理方法：</text> <text>{{item.handle}}</text>
+          </view>
+          <view class="msg-list" wx:if="{{item.imgs.length}}">
+            <view class="msg-title">处理现场</view>
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.imgs}}" wx:for="{{item.imgs}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+            </view>
+          </view>
+          <view class="msg-input" wx:if="{{item.die_num}}">
+            <text>饲喂量：</text> <text>{{item.die_num}}千克</text>
+          </view>
+          <view class="msg-txt" wx:if="{{item.text}}">{{item.text}}</view>
+        </view>
+
+        <view class="msg-inner" wx:elif="{{item.type_name == '收获'}}">
+          <view class="yuan"></view>
+          <view class="line"></view>
+          <view class="msg-date">
+            <image src="../../../images/record-date.png"></image> 
+            {{item.info_time}} <text>{{item.type_name}}</text>
+          </view>
+          <view class="msg-list" wx:if="{{item.imgs.length}}">
+            <view class="msg-title">操作现场</view>
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.imgs}}" wx:for="{{item.imgs}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+            </view>
+          </view>
+          <view class="msg-input" wx:if="{{item.egg_num}}">
+            <text>产蛋量：</text> <text>{{item.egg_num}}个</text>
+          </view>
+          <view class="msg-input" wx:if="{{item.slay_num}}">
+            <text>宰杀量：</text> <text>{{item.slay_num}}只</text>
+          </view>
+          <view class="msg-txt" wx:if="{{item.text}}">{{item.text}}</view>
+        </view>
+      </view>
+      <view class="msg-wrap" wx:for="{{cropInfos}}" wx:if="{{batchType == 'bee'}}">
+        <view class="msg-inner" wx:if="{{item.type_name == '日常巡查'}}">
+          <view class="yuan"></view>
+          <view class="line"></view>
+          <view class="msg-date">
+            <image src="../../../images/record-date.png"></image> 
+            {{item.info_time}} <text>{{item.type_name}}</text>
+          </view>
+          <view class="msg-list" wx:if="{{item.imgs.length}}">
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.imgs}}" wx:for="{{item.imgs}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+            </view>
+          </view>
+          <view class="msg-txt" wx:if="{{item.text}}">{{item.text}}</view>
+        </view>
+      
+        <view class="msg-inner" wx:if="{{item.type_name == '蜂场环境'}}">
+          <view class="yuan"></view>
+          <view class="line"></view>
+          <view class="msg-date">
+            <image src="../../../images/record-date.png"></image> 
+            {{item.info_time}} <text>{{item.type_name}}</text>
+          </view>
+          <view class="msg-input" wx:if="{{item.location}}">
+              <text>放蜂地点：</text> <text>{{item.location}}</text>
+            </view>
+            <view class="msg-list" wx:if="{{item.plants.length}}" wx:for="{{item.plants}}" wx:for-index="index1" wx:for-item="item1">
+              <view class="msg-title"><text>蜜源植物：</text> <text>{{item1.batch_bee_plant}}</text></view>
+              <view class="msg-img">
+                <image bindtap="imgBig1" data-src="{{item1.imgs}}" wx:for="{{item1.imgs}}" wx:for-index="i" wx:for-item="p" src="{{p}}" data-index="{{i}}"></image>
+              
+              </view>
+            </view>
+            <view class="msg-list" wx:if="{{item.headwaters.length}}" wx:for="{{item.headwaters}}" wx:for-index="index1" wx:for-item="item1">
+              <view class="msg-title"><text>水源地：</text> <text>{{item1.batch_bee_headwaters_location}}</text></view>
+              <view class="msg-img">
+                <image bindtap="imgBig1" data-src="{{item1.imgs}}" wx:for="{{item1.imgs}}" wx:for-index="i" wx:for-item="p" src="{{p}}" data-index="{{i}}"></image>
+              </view>
+            </view>
+            <view class="msg-txt" wx:if="{{item.text}}">{{item.text}}</view>
+        </view>
+
+        <view class="msg-inner" wx:if="{{item.type_name == '药剂投入'}}">
+          <view class="yuan"></view>
+          <view class="line"></view>
+          <view class="msg-date">
+            <image src="../../../images/record-date.png"></image> 
+            {{item.info_time}} <text>{{item.type_name}}</text>
+          </view>
+          <view class="msg-list" wx:if="{{item.drugCons.length}}">
+            <view class="msg-title">药剂外包装正面</view>
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.drugCons}}" wx:for="{{item.drugCons}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+            </view>
+          </view>
+          <view class="msg-list" wx:if="{{item.drugFaces.length}}">
+            <view class="msg-title">药剂外包装反面</view>
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.drugFaces}}" wx:for="{{item.drugFaces}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+            </view>
+          </view>
+          <view class="msg-list" wx:if="{{item.spots.length}}">
+            <view class="msg-title">施药现场</view>
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.spots}}" wx:for="{{item.spots}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+            </view>
+          </view>
+          <view class="msg-input" wx:if="{{item.prevention_object}}">
+            <text>防治对象：</text> <text>{{item.prevention_object}}</text>
+          </view>
+          <view class="msg-input" wx:if="{{item.drug_name}}">
+            <text>肥料名称：</text> <text>{{item.drug_name}}</text>
+          </view>
+          <view class="msg-input" wx:if="{{item.measure}}">
+            <text>肥料用量：</text> <text>{{item.measure}}</text>
+          </view>
+          <view class="msg-txt" wx:if="{{item.text}}">{{item.text}}</view>
+        </view>
+
+        <view class="msg-inner" wx:if="{{item.type_name == '饲料投入'}}">
+          <view class="yuan"></view>
+          <view class="line"></view>
+          <view class="msg-date">
+            <image src="../../../images/record-date.png"></image> 
+            {{item.info_time}} <text>{{item.type_name}}</text>
+          </view>
+          <view class="msg-input" wx:if="{{item.forage_name}}">
+            <text>饲料选择：</text> <text>{{item.forage_name}}</text>
+          </view>
+          <view class="msg-list" wx:if="{{item.forages.length}}">
+            <view class="msg-title">饲料外包装</view>
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.forages}}" wx:for="{{item.forages}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+            </view>
+          </view>
+          <view class="msg-list" wx:if="{{item.spots.length}}">
+            <view class="msg-title">饲喂现场</view>
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.spots}}" wx:for="{{item.spots}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+            </view>
+          </view>
+          <view class="msg-input" wx:if="{{item.feed_num}}">
+            <text>饲喂量：</text> <text>{{item.feed_num}}千克</text>
+          </view>
+          <view class="msg-txt" wx:if="{{item.text}}">{{item.text}}</view>
+        </view>
+
+        <view class="msg-inner" wx:if="{{item.type_name == '收获'}}">
+          <view class="yuan"></view>
+          <view class="line"></view>
+          <view class="msg-date">
+            <image src="../../../images/record-date.png"></image> 
+            {{item.info_time}} <text>{{item.type_name}}</text>
+          </view>
+          <view class="msg-list" wx:if="{{item.operateSpots.length}}">
+            <view class="msg-title">操作现场图</view>
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.operateSpots}}" wx:for="{{item.operateSpots}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+            </view>
+          </view>
+          <view class="msg-list" wx:if="{{item.spots.length}}">
+            <view class="msg-title">采收现场</view>
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.spots}}" wx:for="{{item.spots}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+            </view>
+          </view>
+          <view class="msg-list" wx:if="{{item.labels.length}}">
+            <view class="msg-title">采收桶追溯标签</view>
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.labels}}" wx:for="{{item.labels}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+            </view>
+          </view>
+          <view class="msg-input" wx:if="{{item.mel}}">
+            <text>蜂蜜量：</text> <text>{{item.mel}}千克</text>
+          </view>
+          <view class="msg-input" wx:if="{{item.king}}">
+            <text>王浆量：</text> <text>{{item.king}}千克</text>
+          </view>
+          <view class="msg-input" wx:if="{{item.dust}}">
+            <text>花粉量：</text> <text>{{item.dust}}千克</text>
+          </view>
+          <view class="msg-input" wx:if="{{item.wax}}">
+            <text>蜂蜡量：</text> <text>{{item.wax}}千克</text>
+          </view>
+          <view class="msg-input" wx:if="{{item.glue}}">
+            <text>蜂胶量：</text> <text>{{item.glue}}千克</text>
+          </view>
+          <view class="msg-txt" wx:if="{{item.text}}">{{item.text}}</view>
+        </view>
+
+        <view class="msg-inner" wx:if="{{item.type_name == '位置变更'}}">
+          <view class="yuan"></view>
+          <view class="line"></view>
+          <view class="msg-date">
+            <image src="../../../images/record-date.png"></image> 
+            {{item.info_time}} <text>{{item.type_name}}</text>
+          </view>
+           <view class="msg-input" wx:if="{{item.new_location}}">
+            <text>新位置：</text> <text>{{item.new_location}}</text>
+          </view>
+          <view class="msg-list" wx:if="{{item.imgs.length}}">
+            <view class="msg-img">
+              <image bindtap="imgBig" data-src="{{item.imgs}}" wx:for="{{item.imgs}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
+            </view>
+          </view>
+          <view class="msg-txt" wx:if="{{item.text}}">{{item.text}}</view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>
