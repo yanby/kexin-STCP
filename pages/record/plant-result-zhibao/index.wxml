@@ -36,7 +36,7 @@
         <text>肥料名称：</text> <text>{{toDay.drug_name}}</text>
       </view>
       <view class="msg-input" wx:if="{{toDay.measure}}">
-        <text>肥料用量：</text> <text>{{toDay.measure}}</text>
+        <text>肥料用量：</text> <text>{{toDay.measure}}{{toDay.unit}}</text>
       </view>
       <view class="msg-txt" wx:if="{{toDay.text}}">{{toDay.text}}</view>
       <view class="btn" wx:if="{{status}}">

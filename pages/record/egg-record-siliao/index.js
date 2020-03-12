@@ -13,6 +13,7 @@ Page({
    */
   data: {
     date: "",
+    dateEnd: new Date(),
     recordState: false, //录音状态
     content: '',//内容
     batchId: "",//批次ID
@@ -41,6 +42,7 @@ Page({
     
    
     this.setData({
+      dateEnd: new Date(),
       batchId: options.batchId || "",
       listId: options.listId || ""
     })

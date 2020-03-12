@@ -3,6 +3,7 @@ const imgUrl = "https://kexinfarms.oss-cn-beijing.aliyuncs.com/static";
 
 // const https = "http://192.168.18.236:9002";
 const https = "https://eco-pro.cn:9002";
+// const https = "http://1d8963n950.iask.in:80";
 const httpsUrl = "https://wxfarms.fpchy.com:8085";
 
 // 请求封装

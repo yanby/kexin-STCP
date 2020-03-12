@@ -1,7 +1,7 @@
 <view class="egg-record-yaoji">
   <view class="time">
     <text>选择日期：</text>
-    <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+    <picker mode="date" value="{{date}}" end="{{dateEnd}}" bindchange="bindDateChange">
       <view class="picker">
         {{date}}
       </view>

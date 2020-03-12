@@ -1,7 +1,7 @@
 <view class="plant-record-zhibao">
   <view class="time">
     <text>选择日期：</text>
-    <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+    <picker mode="date" value="{{date}}" end="{{dateEnd}}"  bindchange="bindDateChange">
       <view class="picker">
         {{date}}
       </view>
@@ -101,7 +101,13 @@
   </view>
    <view class="txt">
     <text class="txt-three">用药量：</text>
-    <input class="txt-input2" placeholder="请输入用药量，并注明单位" type="text" value="{{dosage}}" data-k="dosage" bindinput="input"></input>
+    <input class="txt-input2 txt-input3" placeholder="请输入用药量" type="text" value="{{dosage}}" data-k="dosage" bindinput="input"></input>
+  
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker picker1">
+       {{array[index]}}
+      </view>
+    </picker>
   </view>
   <view class="voice">
     <text>说点什么：</text>

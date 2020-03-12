@@ -7,6 +7,7 @@ Page({
    */
   data: {
     date: "",
+    dateEnd: new Date(),
     index: "",
     batchId: "",
     name: "",
@@ -21,6 +22,7 @@ Page({
     var batch = JSON.parse(options.batch)
     console.log(batch)
     this.setData({
+      dateEnd: new Date(),
       name: batch.buy_sbuyer,
       num: batch.buy_number + "",
       batchId: batch.id,

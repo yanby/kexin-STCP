@@ -7,6 +7,7 @@ Page({
    */
   data: {
     date: "",
+    dateEnd: new Date(),
     index: "",
     plotId: "",
     name: "",
@@ -19,6 +20,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
+      dateEnd: new Date(),
       plotId: options.plotId
     })
   },

@@ -13,6 +13,7 @@ Page({
    */
   data: {
     date: "",
+    dateEnd: "",
     recordState: false, //录音状态
     content: '',//内容
     batchId: "",//批次ID
@@ -25,6 +26,9 @@ Page({
     dosage: "",//用药量
     name: "",//药剂名称
     object: "",//防治对象
+    array: ['克', '毫升'],
+    index: 0,
+    unit: "",//单位
   },
 
   /**
@@ -38,8 +42,10 @@ Page({
 
    
     this.setData({
+      dateEnd: new Date(),
       batchId: options.batchId || "",
-      listId: options.listId || ""
+      listId: options.listId || "",
+      unit: this.data.array[0]
     })
     if (this.data.listId){
       this.init()
@@ -62,6 +68,17 @@ Page({
         object: res.data.protection.prevention_object,
         name: res.data.protection.drug_name
       })
+      if (res.data.protection.unit == "毫升"){
+        this.setData({
+          index: 1,
+          unit: this.data.array[1]
+        })
+      }else{
+        this.setData({
+          index: 0,
+          unit: this.data.array[0]
+        })
+      }
       
     })
   },
@@ -69,8 +86,10 @@ Page({
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      index: e.detail.value
+      index: e.detail.value,
+      unit: this.data.array[e.detail.value]
     })
+    console.log(this.data.unit)
   },
   //时间选择
   bindDateChange: function (e) {
@@ -418,6 +437,7 @@ Page({
       "batchCropProtection.prevention_object": that.data.object,//防治对象
       "batchCropProtection.drug_name": that.data.name,//药剂名称
       "batchCropProtection.measure": that.data.dosage,//药剂量
+      "batchCropProtection.unit": that.data.unit,//单位
     }).then(res => {
       console.log(res);
       wx.navigateBack()

@@ -24,6 +24,9 @@
               <image bindtap="imgBig" data-src="{{item.imgs}}" wx:for="{{item.imgs}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
                 </view>
               </view>
+              <view class="msg-input" wx:if="{{item.work_time}}">
+                <text>工时记录：</text> <text>{{item.work_time}}</text>
+              </view>
               <view class="msg-txt" wx:if="{{item.text}}">{{item.text}}</view>
             </view>
             <view class="msg-inner" wx:elif="{{item.type_name == '肥料投入'}}">
@@ -130,6 +133,9 @@
 
           <view class="msg-input" wx:if="{{item.die_num}}">
             <text>死亡数量：</text> <text>{{item.die_num}}只</text>
+          </view>
+           <view class="msg-input" wx:if="{{item.work_time}}">
+            <text>工时记录：</text> <text>{{item.work_time}}</text>
           </view>
           <view class="msg-txt" wx:if="{{item.text}}">{{item.text}}</view>
         </view>
@@ -255,6 +261,9 @@
             <view class="msg-img">
               <image bindtap="imgBig" data-src="{{item.imgs}}" wx:for="{{item.imgs}}" wx:for-index="i" wx:for-item="p" src="{{p.img}}" data-index="{{i}}"></image>
             </view>
+          </view>
+          <view class="msg-input" wx:if="{{item.work_time}}">
+            <text>工时记录：</text> <text>{{item.work_time}}</text>
           </view>
           <view class="msg-txt" wx:if="{{item.text}}">{{item.text}}</view>
         </view>

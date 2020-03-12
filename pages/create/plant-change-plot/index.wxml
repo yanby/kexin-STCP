@@ -17,6 +17,23 @@
     <input type="number" class="weui-input" placeholder="请输入您的地块名称" value="{{area}}" data-k="area" bindinput="input" type="digit" />
     <view class="unit">亩</view>
   </view>
+  <view class="list list1">
+    <view class="img">
+      <text>地块实景：</text>
+      <view class="img-item">
+        <view class="img-tu">
+          <view class="img-tu-wrap" wx:if="{{img}}">
+            <image src="{{img}}"></image>
+            <view class="img-close" data-id="{{item.id}}" data-index="{{index}}" bindtap="delImg">-</view>
+          </view>
+          <view wx:else class="img-tu-item" bindtap="chooseImg">
+            <view class="img-tu-add" >+</view>
+            <view class="img-tu-upload">上传图片</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
   <view class="btn" bindtap="updateCote">确定</view>
 </view>
 

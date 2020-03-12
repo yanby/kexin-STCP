@@ -13,6 +13,7 @@ Page({
    */
   data: {
     date: "",
+    dateEnd: new Date(),
     flag1: true,
     flag2: true,
     recordState: false, //录音状态
@@ -49,6 +50,7 @@ Page({
 
    
     this.setData({
+      dateEnd: new Date(),
       batchId: options.batchId || "",
       listId: options.listId || ""
     })

@@ -242,6 +242,14 @@ button.yuyinBtn{
   background: #fff;
   border-radius: 5rpx;
 }
+.txt-input3{
+   width:300rpx;
+}
+.picker1{
+  width:100rpx;
+  margin-left: 30rpx;
+  color: #666;
+}
 .txt-danwei{
   width: 100rpx;
   margin-left: 20rpx;

@@ -7,6 +7,7 @@ Page({
    */
   data: {
     date: "",
+    dateEnd: new Date(),
     index: "",
     oneCode: "",
     code: "",
@@ -23,6 +24,7 @@ Page({
     console.log(options)
     var batch = JSON.parse(options.batch)
     this.setData({
+      dateEnd: new Date(),
       oneCode: batch.parent_bee_number +"",
       date: batch.bee_join_time,
       code: batch.bee_number + "",

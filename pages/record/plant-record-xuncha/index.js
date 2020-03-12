@@ -13,13 +13,15 @@ Page({
    */
   data: {
     date: "",
+    dateEnd:"",
     recordState: false, //录音状态
     content: '',//内容
     batchId: "",//批次ID
     listId: "",//列表ID
     txt: "",
     status: "",
-    imgs: []
+    imgs: [],
+    name: ""
   },
 
   /**
@@ -30,11 +32,16 @@ Page({
     app.getRecordAuth()
     //识别语音
     this.initRecord();
-
-   
+    // let time = new Date();
+    // let year = time.getFullYear();
+    // let mounth = time.getMonth()+1;
+    // let day = time.getDate();
+    // let rusult = year + "-" + mounth + "-" + day;
+  
     this.setData({
       batchId: options.batchId || "",
-      listId: options.listId || ""
+      listId: options.listId || "",
+      dateEnd: new Date()
     })
     if (this.data.listId){
       this.init()
@@ -50,10 +57,17 @@ Page({
       this.setData({
         date: res.data.toDay.info_time,
         content: res.data.toDay.text,
-        imgs: res.data.toDay.imgs
+        imgs: res.data.toDay.imgs,
+        name: res.data.toDay.work_time
       })
       
     })
+  },
+  //失去焦点
+  input: function (e) {
+    var o = {}
+    o[e.target.dataset.k] = e.detail.value
+    this.setData(o)
   },
   //下拉选择
   bindPickerChange: function (e) {
@@ -209,6 +223,7 @@ Page({
       "batchCropToDay.text": that.data.content,//文字信息
       "batchCropToDay.status": that.data.status,//0 暂存 1 保存
       "batchCropToDay.batch_crop": that.data.batchId,//批次id
+      "batchCropToDay.work_time": that.data.name,//工时记录
       "imgs": JSON.stringify(that.data.imgs),//日常巡查图片
       "batchCropToDay.id": that.data.listId,//巡查 id，无id为新增，有id为编辑
     }).then(res => {

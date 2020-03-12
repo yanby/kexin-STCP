@@ -13,6 +13,7 @@ Page({
    */
   data: {
     date: "",
+    dateEnd: new Date(),
     recordState: false, //录音状态
     content: '',//内容
     batchId: "",//批次ID
@@ -23,6 +24,7 @@ Page({
     imgs2: [],
     imgs3: [],
     num: "",//用药量
+    name: "",//工时记录
   },
 
   /**
@@ -36,6 +38,7 @@ Page({
 
    
     this.setData({
+      dateEnd: new Date(),
       batchId: options.batchId || "",
       listId: options.listId || ""
     })
@@ -54,7 +57,8 @@ Page({
         date: res.data.batchEggToDay.info_time,
         content: res.data.batchEggToDay.text,
         imgs1: res.data.batchEggToDay.imgs,
-        num: res.data.batchEggToDay.die_num
+        num: res.data.batchEggToDay.die_num,
+        name: res.data.batchEggToDay.work_time
       })
       
     })
@@ -408,6 +412,7 @@ Page({
       "imgs": JSON.stringify(that.data.imgs1),//药记正面图片数组
       "batchEggToDay.id": that.data.listId,//巡查 id，无id为新增，有id为编辑
       "batchEggToDay.die_num": that.data.num,//数量
+      "batchEggToDay.work_time": that.data.name,//工时记录
     }).then(res => {
       console.log(res);
       wx.navigateBack()

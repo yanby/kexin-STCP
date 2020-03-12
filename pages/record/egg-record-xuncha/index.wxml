@@ -1,7 +1,7 @@
 <view class="plant-record-zhibao">
   <view class="time">
     <text>选择日期：</text>
-    <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+    <picker mode="date" value="{{date}}" end="{{dateEnd}}" bindchange="bindDateChange">
       <view class="picker">
         {{date}}
       </view>
@@ -72,6 +72,10 @@
         </picker-view-column>
       </picker-view>
     </view> -->
+  </view>
+  <view class="txt">
+    <text>工时记录：</text>
+    <input class="txt-input2" placeholder="" type="text" value="{{name}}" data-k="name" bindinput="input"></input>
   </view>
   <view class="voice">
     <text>说点什么：</text>

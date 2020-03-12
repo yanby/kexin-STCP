@@ -20,6 +20,9 @@
       <view class="msg-input" wx:if="{{toDay.die_num}}">
         <text>死亡数量：</text> <text>{{toDay.die_num}}只</text>
       </view>
+      <view class="msg-input" wx:if="{{toDay.work_time}}">
+        <text>工时记录：</text> <text>{{toDay.work_time}}</text>
+      </view>
       <view class="msg-txt" wx:if="{{toDay.text}}">{{toDay.text}}</view>
       <view class="btn" wx:if="{{status}}">
         <view class="hold" data-id="{{toDay.id}}" bindtap="addFun">增补信息</view>

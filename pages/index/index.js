@@ -35,12 +35,29 @@ Page({
   },
 
   onLoad(query) {
+
+   
    
     if (wx.getStorageSync('token')){
-      this.setData({
-        token: wx.getStorageSync('token')
+     
+      request('/app/wx/userInfo', 'post', {
+        phone: wx.getStorageSync("token"),
+      }).then(res => {
+        console.log(res)
+        if(res.data.status == 0){
+          this.setData({
+            token: wx.getStorageSync('token')
+          })
+          this.init();
+        }else{
+          wx.showToast({
+            title: "您还未登录，请到个人中心登录",
+            icon: 'none'
+          })
+          wx.clearStorage()
+        }
       })
-      this.init();
+     
       
     }else{
       wx.showToast({
@@ -83,16 +100,62 @@ Page({
         title = "养蜂"
       }
 
-      if( arr.length == this.data.titleArr ){
-        return
-      }
-
       if (arr.length != 0) {
         this.setData({
           titleArr: arr,
           coteType: arr[0].type
         })
-        this.getBatchIndexInfo() 
+        this.getBatchIndexInfo()
+      } else {
+        this.setData({
+          flag: true
+        })
+      }
+      //获取列表
+      this.list()
+    })
+  },
+  initOther() {
+    var arr = [];
+    var title = "";
+    request('/app/wx/getCoteInfoByFarm', 'post', {
+      farm: wx.getStorageSync('farms')
+    }).then(res => {
+      console.log(res);
+      if (res.data.bee == 0 && res.data.egg == 0 && res.data.crop == 0) {
+        this.setData({
+          flag: true
+        })
+        return
+      }
+      if (res.data.crop >= 1) {
+        arr.push({ "name": "种植", type: "crop" })
+        title = "种植"
+      }
+      if (res.data.egg >= 1) {
+        arr.push({ "name": "蛋鸡", type: "egg" })
+        title = "蛋鸡"
+      }
+      if (res.data.bee >= 1) {
+        arr.push({ "name": "养蜂", type: "bee" })
+        title = "养蜂"
+      }
+
+      if (arr.length != 0) {
+        this.setData({
+          titleArr: arr,
+          coteType: arr[0].type,
+          cote: "",
+          model: false,
+          dikuaiId: -1,
+          zuowuId: -1,
+          selectActiveId: -1,
+          selectArr: [
+            { name: "全部地块", id: 0 },
+            { name: "全部作物", id: 1 }
+          ]
+        })
+        this.getBatchIndexInfo()
       } else {
         this.setData({
           flag: true
@@ -290,14 +353,17 @@ Page({
     let coteType = e.currentTarget.dataset.cotetype;
     console.log(e)
     if (this.data.coteType == "crop"){
+      wx.setStorageSync('falg',1)
       wx.navigateTo({
         url: `/pages/record/plant-record-list/index?batchId=${id}&crop=${crop}&variety=${variety}&coteType=${coteType}`
       })
     }else if (this.data.coteType == "egg") {
+      wx.setStorageSync('falg', 2)
       wx.navigateTo({
         url: `/pages/record/egg-record-list/index?batchId=${id}&variety=${variety}&coteType=${coteType}`
       })
     } else if (this.data.coteType == "bee") {
+      wx.setStorageSync('falg', 3)
       wx.navigateTo({
         url: `/pages/record/bee-record-list/index?batchId=${id}&variety=${variety}&coteType=${coteType}`
       })
@@ -320,25 +386,16 @@ Page({
         flag: false
       })
     }
-    this.setData({
-      selectArr: [
-        { name: "全部地块", id: 0 },
-        { name: "全部作物", id: 1 }
-      ],
-      cote: "",
-      zuowuId: -1,
-      dikuaiId: -1,
-    })
-this.init()
-    // if (wx.getStorageSync('falg') == "true"){
-    //   this.init();
-    //   wx.setStorageSync('falg',"false")
-    // }
+
+    if (!wx.getStorageSync('falg')){
+      this.initOther();
+      return
+    }
   
-    // this.list()
-    // setTimeout(()=>{
-    //   this.getBatchIndexInfo()
-    // },500)
+    this.list()
+    setTimeout(()=>{
+      this.getBatchIndexInfo()
+    },500)
    
   },
   onHide() {

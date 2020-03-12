@@ -7,6 +7,7 @@ Page({
    */
   data: {
     date: "",
+    dateEnd: new Date(),
     index: "",
     batch: "",
     crop: "",//作物
@@ -25,6 +26,7 @@ Page({
     var batch = JSON.parse(options.batch)
     console.log(batch)
     this.setData({
+      dateEnd: new Date(),
       name: batch.variety,
       crop: batch.crop,
       batchId: batch.id,

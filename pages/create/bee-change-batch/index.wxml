@@ -7,7 +7,7 @@
     </view>
     <view class="list">
       <text>蜂王入箱日期：</text>
-      <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+      <picker mode="date" value="{{date}}" end="{{dateEnd}}"  bindchange="bindDateChange">
         <view class="picker">
           {{date}}
         </view>

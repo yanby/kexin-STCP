@@ -7,6 +7,7 @@ Page({
    */
   data: {
     date: "",
+    dateEnd: new Date(),
     index: "",
     array: ['枇杷', '山药'],
     crop: "",//作物
@@ -20,6 +21,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
+      dateEnd: new Date(),
       plotId: options.plotId
     })
   },
